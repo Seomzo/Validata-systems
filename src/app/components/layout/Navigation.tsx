@@ -43,12 +43,12 @@ export function Navigation() {
           </div>
 
           {/* CTA Button */}
-          <Link
-            to="/contact"
+          <a
+            href="mailto:Omar@validatasystems.com"
             className="hidden md:block px-5 py-2.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm"
           >
             Talk to Us
-          </Link>
+          </a>
 
           {/* Mobile Menu Button */}
           <button className="md:hidden p-2">

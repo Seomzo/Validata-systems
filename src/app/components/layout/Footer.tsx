@@ -51,9 +51,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-gray-600 hover:text-gray-900">
+                <a href="mailto:Omar@validatasystems.com" className="text-sm text-gray-600 hover:text-gray-900">
                   Contact
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

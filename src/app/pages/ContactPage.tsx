@@ -44,7 +44,7 @@ export function ContactPage() {
               Reach out to discuss how Validata Systems can help your organization.
             </p>
             <a
-              href="mailto:contact@validatasystems.com"
+              href="mailto:Omar@validatasystems.com"
               className="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
             >
               Send us an email

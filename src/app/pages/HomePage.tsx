@@ -64,12 +64,12 @@ export function HomePage() {
                 Explore ClaimScanner
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-              <Link
-                to="/contact"
+              <a
+                href="mailto:Omar@validatasystems.com"
                 className="inline-flex items-center justify-center px-6 py-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all text-gray-700"
               >
                 Talk to Us
-              </Link>
+              </a>
             </motion.div>
           </div>
 

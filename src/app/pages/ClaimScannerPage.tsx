@@ -138,12 +138,12 @@ export function ClaimScannerPage() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl tracking-tight mb-6">Ready to Learn More?</h2>
-            <Link
-              to="/contact"
+            <a
+              href="mailto:Omar@validatasystems.com"
               className="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
             >
               Talk to Us
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
