@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'motion/react';
-import logo from '@/assets/d93dec5207a033ddc966c0a2450412ab01497fb3.png';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const navLinks = [
   { name: 'Products', path: '/products' },
@@ -12,13 +14,14 @@ const navLinks = [
 
 export function Navigation() {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm border-b border-gray-100 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
             <img src={logo} alt="Validata Systems" className="h-12" />
           </Link>
 
@@ -51,13 +54,58 @@ export function Navigation() {
           </a>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+          <button 
+            className="md:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+          >
+            <div className="px-6 py-4 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-base font-medium transition-colors ${
+                    location.pathname === link.path
+                      ? 'text-blue-600'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <div className="pt-4 border-t border-gray-100">
+                <a
+                  href="mailto:Omar@validatasystems.com"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium"
+                >
+                  Talk to Us
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

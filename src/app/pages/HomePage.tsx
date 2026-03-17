@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, Shield, Cpu, Database } from 'lucide-react';
 import { Badge } from '@/app/components/ui/badge';
 import { ValidationGrid } from '@/app/components/visualizations/ValidationGrid';
+import claimscannerAsset from '@/assets/claimscanner-asset.png';
 
 export function HomePage() {
   return (
@@ -184,9 +185,13 @@ export function HomePage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-blue-50 to-gray-50 rounded-2xl p-12 aspect-square flex items-center justify-center"
+              className="bg-gradient-to-br from-blue-50 to-gray-50 rounded-2xl p-4 md:p-8 flex items-center justify-center overflow-hidden"
             >
-              <Database className="w-32 h-32 text-blue-500/20" />
+              <img 
+                src={claimscannerAsset} 
+                alt="ClaimScanner.ai" 
+                className="w-full h-auto rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100" 
+              />
             </motion.div>
           </div>
         </div>
