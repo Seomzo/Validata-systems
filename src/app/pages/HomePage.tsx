@@ -2,33 +2,37 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, Shield, Cpu, Database } from 'lucide-react';
 import { Badge } from '@/app/components/ui/badge';
-import { ValidationGrid } from '@/app/components/visualizations/ValidationGrid';
 import claimscannerAsset from '@/assets/claimscanner-asset.png';
+import vsVid from '@/assets/VSvid1.webm';
 
 export function HomePage() {
   return (
     <div className="flex-1">
-      {/* Hero Section — Split Layout */}
-      <section className="pt-28 pb-20 px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[520px]">
-          {/* Left: Text Content */}
-          <div className="max-w-xl">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-5"
-            >
-              <span className="inline-block text-xs font-medium tracking-widest uppercase text-blue-500/80 bg-blue-50 px-3 py-1 rounded-full">
-                AI Infrastructure
-              </span>
-            </motion.div>
+      {/* Hero Section — Full Width Video Background */}
+      <section className="relative pt-40 lg:pt-48 pb-24 lg:pb-32 px-6 lg:px-8 overflow-hidden min-h-[700px] lg:min-h-[800px] flex items-center">
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full bg-black">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+          >
+            <source src={vsVid} type="video/webm" />
+          </video>
+          {/* Gradient Overlay for better readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/40 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <div className="max-w-3xl">
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="text-4xl md:text-5xl lg:text-[3.25rem] tracking-tight leading-[1.1] mb-6 text-gray-950"
+              className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6 text-white font-medium"
             >
               Applied AI Systems for Automotive Compliance and Validation
             </motion.h1>
@@ -37,7 +41,7 @@ export function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.12 }}
-              className="text-lg text-gray-500 mb-3 leading-relaxed"
+              className="text-lg md:text-xl text-gray-200 mb-4 leading-relaxed max-w-2xl font-light"
             >
               Validata Systems builds AI-powered infrastructure that helps dealerships and manufacturers validate
               processes, ensure compliance, and automate complex operational workflows.
@@ -47,7 +51,7 @@ export function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.18 }}
-              className="text-sm text-gray-400 mb-10"
+              className="text-sm text-gray-400 mb-10 tracking-wide uppercase"
             >
               The company behind ClaimScanner.ai.
             </motion.p>
@@ -60,29 +64,19 @@ export function HomePage() {
             >
               <Link
                 to="/claimscanner"
-                className="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
+                className="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
               >
                 Explore ClaimScanner
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <a
                 href="mailto:Omar@validatasystems.com"
-                className="inline-flex items-center justify-center px-6 py-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-all text-gray-700"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white font-medium rounded-lg hover:border-white hover:bg-white/10 transition-all backdrop-blur-sm"
               >
                 Talk to Us
               </a>
             </motion.div>
           </div>
-
-          {/* Right: Validation Grid Visualization */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block h-[480px] lg:h-[520px]"
-          >
-            <ValidationGrid />
-          </motion.div>
         </div>
       </section>
 
