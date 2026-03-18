@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
@@ -15,29 +15,60 @@ const navLinks = [
 export function Navigation() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isHomePage = location.pathname === '/';
+  const isDarkTop = isHomePage && !isScrolled;
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm border-b border-gray-100 z-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <nav 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isDarkTop 
+          ? 'bg-gradient-to-b from-black/50 to-transparent py-2' 
+          : 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-0'
+      }`}
+    >
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
-            <img src={logo} alt="Validata Systems" className="h-12" />
+            <div className={`transition-all duration-300 ${isDarkTop ? 'brightness-0 invert' : 'brightness-100 invert-0'}`}>
+              <img 
+                src={logo} 
+                alt="Validata Systems" 
+                className={`transition-all duration-300 ${isDarkTop ? 'h-11 md:h-12' : 'h-10 md:h-12'}`} 
+              />
+            </div>
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center justify-end gap-10 lg:gap-14 flex-1 pr-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="relative text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className={`relative text-[15px] font-medium transition-colors hover:opacity-100 ${
+                  isDarkTop 
+                    ? 'text-gray-200 hover:text-white' 
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 {link.name}
                 {location.pathname === link.path && (
                   <motion.div
                     layoutId="nav-indicator"
-                    className="absolute -bottom-[21px] left-0 right-0 h-0.5 bg-blue-500"
+                    className={`absolute -bottom-[29px] left-0 right-0 h-[3px] rounded-t-lg ${
+                      isDarkTop ? 'bg-white' : 'bg-blue-600'
+                    }`}
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -45,17 +76,11 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <a
-            href="mailto:Omar@validatasystems.com"
-            className="hidden md:block px-5 py-2.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm"
-          >
-            Talk to Us
-          </a>
-
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors"
+            className={`md:hidden p-2 transition-colors ${
+              isDarkTop ? 'text-gray-200 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -93,15 +118,6 @@ export function Navigation() {
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-gray-100">
-                <a
-                  href="mailto:Omar@validatasystems.com"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium"
-                >
-                  Talk to Us
-                </a>
-              </div>
             </div>
           </motion.div>
         )}
