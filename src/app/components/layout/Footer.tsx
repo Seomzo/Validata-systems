@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Brand } from "../Brand";
+import { MotionToggle } from "../SiteMotion";
 
 export function Footer() {
   return (
@@ -40,7 +41,10 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Validata Systems</p>
-        <span>Built for the details that matter.</span>
+        <div className="footer-preferences">
+          <span>Built for the details that matter.</span>
+          <MotionToggle />
+        </div>
       </div>
     </footer>
   );

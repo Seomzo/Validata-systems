@@ -1,0 +1,127 @@
+/* Pause ambient loops in place so resuming doesn't replay entrance animations. */
+[data-motion="paused"]
+  :is(
+    .atmosphere-glow,
+    .perspective-grid,
+    .scroll-cue svg,
+    .outer-ring,
+    .inner-ring,
+    .orbit-halo,
+    .flow-trace,
+    .orbit-node,
+    .mini-chart > span
+  ),
+[data-motion="paused"] .button-electric::after,
+[data-motion="paused"] .cta-section::before {
+  animation-play-state: paused !important;
+}
+
+html:has([data-motion="paused"]),
+html:has([data-motion="reduced"]) {
+  scroll-behavior: auto;
+}
+
+.motion-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 15px;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #c2d2e5;
+  background: #0c1725;
+  border-color: #657b95;
+}
+.motion-toggle svg {
+  flex-shrink: 0;
+}
+.motion-toggle:focus-visible {
+  outline: 3px solid #23b1de;
+  outline-offset: 4px;
+}
+.motion-toggle:disabled {
+  opacity: 1;
+}
+.footer-bottom {
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-preferences {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.site-footer .motion-toggle {
+  background: #f1f5f9;
+  border-color: #64748b;
+  color: #334155;
+}
+.site-footer .motion-toggle:hover:not(:disabled) {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-color: #0f172a;
+}
+
+@media (max-width: 700px) {
+  .footer-preferences {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .site-header,
+  .orbit-core,
+  .orbit-node {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .site-header {
+    background: #ffffff;
+  }
+  .site-header.home-header {
+    background: #05080f;
+  }
+  .orbit-core,
+  .orbit-node {
+    background: #0c1725;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .orbit-interactive {
+    --orbit-content: #ffffff;
+    --orbit-muted: #e5efff;
+  }
+  .site-header {
+    border-color: #475569;
+  }
+  .site-header.home-header,
+  .orbit-core,
+  .orbit-node,
+  .motion-toggle {
+    border-color: #b6c8de;
+  }
+  .site-footer .motion-toggle {
+    border-color: #334155;
+  }
+  .orbit-node small,
+  .core-label,
+  .core-footer,
+  .orbit-topline,
+  .orbit-topline > span,
+  .orbit-caption p {
+    color: #e5efff;
+  }
+  .orbit-node[aria-pressed="true"] {
+    outline: 2px solid #23b1de;
+    outline-offset: 3px;
+  }
+}

@@ -1,6 +1,20 @@
-import { useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import { ArrowUpRight, BarChart3, ScanLine, Workflow } from "lucide-react";
+import { useRef, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "motion/react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BarChart3,
+  Check,
+  ScanLine,
+  Workflow,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { useSiteMotion } from "./SiteMotion";
@@ -8,28 +22,39 @@ import { useSiteMotion } from "./SiteMotion";
 const systems = [
   {
     name: "ClaimScanner.ai",
-    label: "WARRANTY INTELLIGENCE",
+    label: "Warranty intelligence",
     icon: ScanLine,
-    description: "Connect the repair. Find the evidence.",
+    description: "Connect each repair to the evidence behind it.",
+    input: "Repair documents",
+    outcome: "Supporting evidence",
+    path: "M215 104 C190 160 195 245 310 250",
     to: "/claimscanner",
   },
   {
     name: "Fixed Ops Reports",
-    label: "OPERATIONAL VISIBILITY",
+    label: "Operational visibility",
     icon: BarChart3,
-    description: "See the patterns behind performance.",
+    description: "Turn daily reports into a clearer operational picture.",
+    input: "Daily reports",
+    outcome: "Advisor & store trends",
+    path: "M310 250 C430 250 470 310 510 405",
     to: "https://www.fixedopsreports.com/",
   },
   {
     name: "Dealership agents",
-    label: "WORKFLOW AUTOMATION",
+    label: "Workflow automation",
     icon: Workflow,
-    description: "Give the next step a way forward.",
+    description: "Move work forward with a person at the checkpoint.",
+    input: "Operational task",
+    outcome: "Human checkpoint",
+    path: "M310 250 C270 355 210 430 150 515",
     to: "/agents",
   },
 ];
 export function SystemOrbit() {
   const [active, setActive] = useState(0);
+  const container = useRef<HTMLDivElement>(null);
+  const inView = useInView(container, { amount: 0.1 });
   const { stopped } = useSiteMotion();
   const x = useSpring(useMotionValue(0), { stiffness: 90, damping: 24 });
   const y = useSpring(useMotionValue(0), { stiffness: 90, damping: 24 });
@@ -38,9 +63,11 @@ export function SystemOrbit() {
   const current = systems[active];
   return (
     <div
-      className="orbit-experience"
+      ref={container}
+      className="orbit-experience orbit-interactive"
+      data-orbit-running={inView && !stopped}
       onPointerMove={(event) => {
-        if (stopped || event.pointerType !== "mouse") return;
+        if (stopped || !inView || event.pointerType !== "mouse") return;
         const rect = event.currentTarget.getBoundingClientRect();
         x.set((event.clientX - rect.left) / rect.width - 0.5);
         y.set((event.clientY - rect.top) / rect.height - 0.5);
@@ -52,7 +79,8 @@ export function SystemOrbit() {
     >
       <div className="orbit-topline">
         <span className="signal-dot" />
-        CONNECTED BY DESIGN<span>ILLUSTRATIVE SYSTEM MAP</span>
+        <span>Select a system to explore</span>
+        <span>Illustrative map</span>
       </div>
       <motion.div
         className="orbit-stage"
@@ -66,6 +94,7 @@ export function SystemOrbit() {
         <svg
           className="orbit-lines"
           viewBox="0 0 620 580"
+          preserveAspectRatio="none"
           fill="none"
           aria-hidden="true"
         >
@@ -86,71 +115,69 @@ export function SystemOrbit() {
           <g className="orbit-ring outer-ring">
             <circle
               cx="310"
-              cy="290"
-              r="250"
+              cy="250"
+              r="229"
               stroke="#2196f3"
               strokeOpacity=".17"
             />
             <circle
               cx="310"
-              cy="290"
-              r="239"
+              cy="250"
+              r="218"
               stroke="#4c91df"
               strokeOpacity=".25"
               strokeDasharray="1 13"
             />
-            <circle cx="560" cy="290" r="4" fill="#23b1de" />
-            <circle cx="60" cy="290" r="3" fill="#2196f3" />
+            <circle cx="539" cy="250" r="4" fill="#23b1de" />
+            <circle cx="81" cy="250" r="3" fill="#2196f3" />
           </g>
           <g className="orbit-ring inner-ring">
             <ellipse
               cx="310"
-              cy="290"
-              rx="224"
-              ry="108"
-              transform="rotate(-35 310 290)"
+              cy="250"
+              rx="214"
+              ry="104"
+              transform="rotate(-35 310 250)"
               stroke="url(#orbit-blue)"
             />
             <ellipse
               cx="310"
-              cy="290"
-              rx="224"
-              ry="108"
-              transform="rotate(35 310 290)"
+              cy="250"
+              rx="214"
+              ry="104"
+              transform="rotate(35 310 250)"
               stroke="url(#orbit-blue)"
             />
             <circle
               cx="310"
-              cy="290"
+              cy="250"
               r="155"
               stroke="#2196f3"
               strokeOpacity=".2"
               strokeDasharray="4 7"
             />
           </g>
-          <path
-            className="orbit-route"
-            d="M310 290 C195 275 190 160 215 104 M310 290 C420 205 490 223 511 264 M310 290 C260 360 218 405 177 454"
-            stroke="#2196f3"
-            strokeOpacity=".25"
-          />
-          <path
-            className="flow-trace flow-0"
-            d="M215 104 C190 160 195 275 310 290"
-            stroke="#60a5fa"
-            strokeWidth="2"
-          />
-          <path
-            className="flow-trace flow-1"
-            d="M310 290 C420 205 490 223 511 264"
-            stroke="#60a5fa"
-            strokeWidth="2"
-          />
-          <path
-            className="flow-trace flow-2"
-            d="M177 454 C218 405 260 360 310 290"
-            stroke="#60a5fa"
-            strokeWidth="2"
+          {systems.map((system) => (
+            <path
+              key={system.name}
+              d={system.path}
+              stroke="#2196f3"
+              strokeOpacity=".2"
+            />
+          ))}
+          <motion.path
+            key={active}
+            className="orbit-selected-route"
+            d={current.path}
+            stroke="#23b1de"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            initial={stopped ? false : { pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              duration: stopped ? 0 : 0.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           />
           <g className="orbit-specks" fill="#4a94ec">
             <circle cx="114" cy="199" r="2" />
@@ -163,19 +190,24 @@ export function SystemOrbit() {
         <div className="orbit-core">
           <div className="core-corner corner-one" />
           <div className="core-corner corner-two" />
-          <span className="core-label">INTELLIGENCE, CONNECTED.</span>
           <img src={logo} alt="" width={1001} height={301} />
-          <div className="core-footer">
-            <span className="signal-dot" />
-            APPLIED AI SYSTEMS
-          </div>
+          <span className="orbit-core-caption">Connected intelligence</span>
         </div>
         {systems.map((system, index) => (
-          <button
+          <motion.button
             key={system.name}
+            type="button"
             className={"orbit-node orbit-node-" + index}
             aria-pressed={active === index}
+            aria-controls="orbit-detail"
             onClick={() => setActive(index)}
+            animate={{ scale: stopped ? 1 : active === index ? 1.025 : 1 }}
+            whileTap={stopped ? undefined : { scale: 0.97 }}
+            transition={
+              stopped
+                ? { duration: 0 }
+                : { type: "spring", stiffness: 400, damping: 28 }
+            }
           >
             <span className="node-icon">
               <system.icon size={20} strokeWidth={1.6} />
@@ -184,21 +216,36 @@ export function SystemOrbit() {
               <small>{system.label}</small>
               <strong>{system.name}</strong>
             </span>
-            <span className="node-number">0{index + 1}</span>
-          </button>
+            {active === index && (
+              <Check className="node-selected" size={14} aria-hidden="true" />
+            )}
+          </motion.button>
         ))}
-        <span className="orbit-coordinate coordinate-one" aria-hidden="true">
-          V / 01
-        </span>
-        <span className="orbit-coordinate coordinate-two" aria-hidden="true">
-          SYSTEMS IN MOTION
-        </span>
       </motion.div>
-      <div className="orbit-caption" aria-live="polite">
-        <span>
-          <small>{current.label}</small>
-          <strong>{current.description}</strong>
-        </span>
+      <div className="orbit-caption">
+        <div className="orbit-caption-content" id="orbit-detail">
+          <span className="sr-only" role="status">
+            {current.input} to {current.outcome}. {current.description}
+          </span>
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={active}
+              className="orbit-caption-copy"
+              aria-hidden="true"
+              initial={stopped ? false : { opacity: 0, y: 7 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={stopped ? undefined : { opacity: 0, y: -7 }}
+              transition={{ duration: stopped ? 0 : 0.2 }}
+            >
+              <span className="orbit-detail-flow">
+                <span>{current.input}</span>
+                <ArrowRight size={14} aria-hidden="true" />
+                <span>{current.outcome}</span>
+              </span>
+              <strong>{current.description}</strong>
+            </motion.div>
+          </AnimatePresence>
+        </div>
         {current.to.startsWith("https") ? (
           <a
             href={current.to}

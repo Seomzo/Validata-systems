@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ContactCTA, Eyebrow, TextLink } from "../components/Sections";
-import { WorkCards } from "../components/WorkCards";
+import { ProductStory } from "../components/ProductStory";
 import { SystemOrbit } from "../components/SystemOrbit";
 import { SystemPreview } from "../components/SystemPreview";
 import { MotionToggle, Reveal } from "../components/SiteMotion";
@@ -75,11 +75,11 @@ export function HomePage() {
             ONE FOCUS. <strong>AUTOMOTIVE.</strong>
           </span>
           <div>
-            <span>01 / VALIDATE</span>
+            <span>VALIDATE</span>
             <i />
-            <span>02 / UNDERSTAND</span>
+            <span>UNDERSTAND</span>
             <i />
-            <span>03 / COORDINATE</span>
+            <span>COORDINATE</span>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ export function HomePage() {
             operation. This is where our intelligence gets to work.
           </p>
         </Reveal>
-        <WorkCards />
+        <ProductStory />
       </section>
       <section className="experience-section">
         <div className="experience-grid-bg" aria-hidden="true" />
