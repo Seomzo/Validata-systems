@@ -1,79 +1,94 @@
-import { motion } from 'motion/react';
-import { Brain, Database, Shield, Network } from 'lucide-react';
+import { ContactCTA, Eyebrow, PageIntro } from "../components/Sections";
+import { BookOpen, Database, GitBranch } from "lucide-react";
 
 export function TechnologyPage() {
   return (
-    <div className="flex-1">
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl tracking-tight mb-6"
-          >
-            Technology & Platform
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-gray-600 leading-relaxed"
-          >
-            Validata Systems builds applied AI infrastructure designed for complex, regulated environments.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Technology Stack */}
-      <section className="pb-20 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            {[
-              {
-                icon: Brain,
-                title: 'AI & LLMs',
-                description:
-                  'Our systems leverage large language models and domain-specific AI to interpret structured and unstructured automotive data.',
-              },
-              {
-                icon: Network,
-                title: 'Specialized RAG',
-                description:
-                  'We use retrieval-augmented generation techniques tailored for automotive documentation and compliance workflows.',
-              },
-              {
-                icon: Database,
-                title: 'Data & Vector Infrastructure',
-                description:
-                  'Vector databases and structured pipelines enable accurate retrieval, validation, and traceability across large datasets.',
-              },
-              {
-                icon: Shield,
-                title: 'Built for Compliance',
-                description:
-                  'Every system is designed with auditability, accuracy, and enterprise trust in mind.',
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-blue-200 transition-colors"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-6">
-                  <item.icon className="w-6 h-6 text-blue-500" />
-                </div>
-                <h2 className="text-2xl tracking-tight mb-4">{item.title}</h2>
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
-              </motion.div>
-            ))}
+    <>
+      <PageIntro
+        label="OUR TECHNOLOGY"
+        title={
+          <>
+            Intelligence is useful
+            <br />
+            <em>when it has context.</em>
+          </>
+        }
+      >
+        A dealership workflow is more than a prompt. It’s documents, data,
+        procedures, tools, and people. We build systems that connect those
+        pieces around a specific job.
+      </PageIntro>
+      <section className="wrap architecture-section">
+        <div className="architecture-strip">
+          <div>
+            <span className="mono">01 / INPUTS</span>
+            <h2>The source material</h2>
+            <p>
+              Repair orders · diagnostic logs
+              <br />
+              Reports · workflow context
+            </p>
+          </div>
+          <span aria-hidden="true">→</span>
+          <div className="architecture-core">
+            <span className="mono">02 / INTELLIGENCE</span>
+            <h2>The right context</h2>
+            <p>
+              Retrieve · normalize · reason
+              <br />
+              Apply rules · coordinate tools
+            </p>
+          </div>
+          <span aria-hidden="true">→</span>
+          <div>
+            <span className="mono">03 / OUTPUTS</span>
+            <h2>Something useful</h2>
+            <p>
+              Reviewable findings · insights
+              <br />
+              Actions · clear handoffs
+            </p>
           </div>
         </div>
       </section>
-    </div>
+      <section className="wrap section">
+        <div className="section-heading">
+          <div>
+            <Eyebrow>THREE TECHNICAL DISCIPLINES</Eyebrow>
+            <h2>
+              Purpose determines
+              <br />
+              <em>the system.</em>
+            </h2>
+          </div>
+        </div>
+        <div className="simple-grid">
+          {[
+            {
+              icon: BookOpen,
+              title: "Grounded document review",
+              text: "ClaimScanner uses retrieval-augmented generation to bring relevant repair procedures into the review, then compare requirements with the documented work.",
+            },
+            {
+              icon: Database,
+              title: "Structured operational data",
+              text: "Fixed Ops Reports turns Tekion report exports into a consistent view of advisors, stores, and dates so operators can explore performance.",
+            },
+            {
+              icon: GitBranch,
+              title: "Specialized agent harnesses",
+              text: "Our dealership agent work connects task context, available tools, and execution boundaries around defined operational workflows.",
+            },
+          ].map((item) => (
+            <article key={item.title}>
+              <item.icon size={26} strokeWidth={1.4} />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <ContactCTA />
+    </>
   );
 }
