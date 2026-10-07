@@ -67,7 +67,7 @@ export function SystemPreview() {
     <div className="system-preview">
       <div className="preview-top">
         <div>
-          <span className="tiny-mark">v.</span>
+          <ScanLine size={18} className="preview-icon" aria-hidden="true" />
           <strong>Systems at work</strong>
         </div>
         <span className="sample-label">

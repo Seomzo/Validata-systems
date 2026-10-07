@@ -14,7 +14,7 @@ export function Navigation() {
   const { pathname } = useLocation();
   return (
     <header
-      className="site-header"
+      className={pathname === "/" ? "site-header home-header" : "site-header"}
       onKeyDown={(event) => {
         if (event.key === "Escape") setOpen(false);
       }}
