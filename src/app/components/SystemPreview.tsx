@@ -21,7 +21,6 @@ const modes = [
     title: "Every detail. In context.",
     subtitle: "REPAIR ORDER / EXAMPLE",
     bottom: "Source-linked findings",
-    color: "orange",
   },
   {
     label: "Reporting",
@@ -30,7 +29,6 @@ const modes = [
     title: "See the whole operation.",
     subtitle: "FIXED OPERATIONS / EXAMPLE",
     bottom: "One view of your operation",
-    color: "green",
   },
   {
     label: "Agents",
@@ -39,7 +37,6 @@ const modes = [
     title: "Put the workflow in motion.",
     subtitle: "SPECIALIZED WORKFLOW / EXAMPLE",
     bottom: "Purpose-built execution",
-    color: "blue",
   },
 ];
 export function SystemPreview() {
@@ -100,7 +97,8 @@ export function SystemPreview() {
         ))}
       </div>
       <div
-        className={"system-panel " + mode.color}
+        className="system-panel"
+        key={active}
         id={"system-panel-" + active}
         role="tabpanel"
         aria-labelledby={"system-tab-" + active}

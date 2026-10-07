@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Reveal } from "./SiteMotion";
 import type { ReactNode } from "react";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
@@ -30,7 +31,7 @@ export function PageIntro({
 export function ContactCTA() {
   return (
     <section className="cta-section">
-      <div className="wrap cta-inner">
+      <Reveal className="wrap cta-inner">
         <div>
           <Eyebrow>LET’S BUILD WHAT’S NEXT</Eyebrow>
           <h2>
@@ -48,7 +49,7 @@ export function ContactCTA() {
             Start a conversation <ArrowUpRight size={18} />
           </Link>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

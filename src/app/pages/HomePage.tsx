@@ -1,163 +1,176 @@
 import {
   ArrowDown,
+  ArrowRight,
   ArrowUpRight,
-  BarChart3,
-  GitBranch,
-  ScanLine,
+  Braces,
+  Layers3,
+  ShieldCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { SystemPreview } from "../components/SystemPreview";
 import { ContactCTA, Eyebrow, TextLink } from "../components/Sections";
 import { WorkCards } from "../components/WorkCards";
+import { SystemOrbit } from "../components/SystemOrbit";
+import { SystemPreview } from "../components/SystemPreview";
+import { MotionToggle, Reveal } from "../components/SiteMotion";
 
 export function HomePage() {
   return (
     <>
-      <section className="home-hero">
-        <div className="wrap hero-grid">
-          <div className="hero-copy">
-            <Eyebrow>PURPOSE-BUILT FOR AUTOMOTIVE</Eyebrow>
+      <section className="motion-hero">
+        <div className="hero-atmosphere" aria-hidden="true">
+          <div className="atmosphere-glow" />
+          <div className="perspective-grid" />
+          <div className="hero-horizon" />
+        </div>
+        <div className="wrap motion-hero-grid">
+          <div className="motion-hero-copy">
+            <div className="hero-kicker">
+              <span className="signal-dot" />
+              APPLIED AI. REAL AUTOMOTIVE WORK.
+            </div>
             <h1>
-              Real work.
-              <br />
-              Intelligent
-              <br />
-              <em>systems.</em>
+              <span>Intelligence.</span>
+              <span>
+                In <em>motion.</em>
+              </span>
             </h1>
             <p>
-              We build applied AI for the work that keeps dealerships
-              moving—from warranty review and fixed ops reporting to specialized
-              operational agents.
+              Better decisions. Connected operations.
+              <br />
+              We build the systems that move dealerships forward.
             </p>
             <div className="hero-actions">
-              <a href="#work" className="button">
-                Explore our work <ArrowUpRight size={18} />
+              <a href="#work" className="button button-electric">
+                Explore our work
+                <ArrowUpRight size={18} />
               </a>
-              <Link className="text-link" to="/contact">
-                Let’s talk <ArrowUpRight size={16} />
+              <Link to="/contact" className="hero-secondary">
+                Build with us
+                <ArrowRight size={17} />
               </Link>
             </div>
-            <div className="hero-footnote">
-              <span className="status-dot" />
-              Deep domain knowledge. Practical intelligence.
+            <div className="hero-signature">
+              <span />
+              Warranty intelligence. Operational visibility.
+              <br />
+              Purpose-built agents.
             </div>
           </div>
-          <div className="hero-visual">
-            <div className="visual-label">
-              <span>THE VALIDATA APPROACH</span>
-              <span>01 / CONNECT THE WORK</span>
-            </div>
-            <SystemPreview />
-            <div className="visual-annotation">
-              <span className="annotation-line" />
-              Built around how dealerships actually work.
-            </div>
-          </div>
+          <SystemOrbit />
         </div>
-        <div className="wrap hero-bottom">
-          <span>VALIDATION. VISIBILITY. AUTOMATION.</span>
-          <a href="#work" aria-label="Scroll to selected work">
-            <ArrowDown size={16} />
+        <div className="wrap motion-hero-bottom">
+          <a href="#work">
+            <span className="scroll-cue">
+              <ArrowDown size={13} />
+            </span>
+            SCROLL TO EXPLORE
           </a>
-          <span>THREE DISCIPLINES. ONE CONNECTED VIEW.</span>
+          <span>BUILT FOR THE DETAILS. DESIGNED FOR WHAT’S NEXT.</span>
+          <MotionToggle />
         </div>
       </section>
-      <section className="context-strip">
+      <div className="discipline-band">
         <div className="wrap">
-          <p>
-            INTELLIGENCE THAT
-            <br />
-            <strong>GETS TO WORK.</strong>
-          </p>
           <span>
-            <ScanLine size={20} />
-            Warranty & compliance
+            ONE FOCUS. <strong>AUTOMOTIVE.</strong>
           </span>
-          <span>
-            <BarChart3 size={20} />
-            Fixed operations
-          </span>
-          <span>
-            <GitBranch size={20} />
-            Dealership logistics
-          </span>
+          <div>
+            <span>01 / VALIDATE</span>
+            <i />
+            <span>02 / UNDERSTAND</span>
+            <i />
+            <span>03 / COORDINATE</span>
+          </div>
         </div>
-      </section>
-      <section className="section wrap work-section" id="work">
-        <div className="section-heading">
+      </div>
+      <section className="section wrap home-work" id="work">
+        <Reveal className="section-heading">
           <div>
             <Eyebrow>SELECTED WORK & PARTNERSHIPS</Eyebrow>
             <h2>
-              Different challenges.
+              Real challenges.
               <br />
-              <em>The same purpose.</em>
+              <em>Remarkable possibilities.</em>
             </h2>
           </div>
           <p>
-            Make complex work easier to understand, review, and move forward.
-            Explore the systems we’re building with our partners.
+            From the evidence inside a claim to the bigger picture across an
+            operation. This is where our intelligence gets to work.
           </p>
-        </div>
+        </Reveal>
         <WorkCards />
-        <div className="section-end">
-          <span>Purpose-built software. Grounded in real operations.</span>
-          <TextLink to="/products">A closer look at our work</TextLink>
-        </div>
       </section>
-      <section className="approach-section">
-        <div className="wrap section approach-grid">
-          <div>
-            <Eyebrow>THE WAY WE BUILD</Eyebrow>
+      <section className="experience-section">
+        <div className="experience-grid-bg" aria-hidden="true" />
+        <div className="wrap experience-layout">
+          <Reveal className="experience-copy">
+            <Eyebrow>GO BEYOND THE OVERVIEW</Eyebrow>
             <h2>
-              The details
+              Don’t just read it.
               <br />
-              make the
-              <br />
-              <em>difference.</em>
+              <em>Explore it.</em>
             </h2>
-            <TextLink to="/technology">Inside our technology</TextLink>
-          </div>
-          <div className="principle-list">
-            {[
-              [
-                "01",
-                "Start with the actual work.",
-                "A repair order. A daily report. An operational handoff. We start with the specific problem your team needs to solve.",
-              ],
-              [
-                "02",
-                "Connect the right context.",
-                "Bring domain knowledge, source documents, and the right tools together so the system can work with the full picture.",
-              ],
-              [
-                "03",
-                "Keep people in the loop.",
-                "Make findings inspectable and actions deliberate. Give your team the context to review, decide, and move forward.",
-              ],
-            ].map(([n, title, text]) => (
-              <article key={n}>
-                <span className="mono">{n}</span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+            <p>
+              Switch between warranty, reporting, and agents to see how each
+              system connects the pieces.
+            </p>
+            <span className="experience-note">
+              <span className="signal-dot" />
+              Interactive illustrations · sample data
+            </span>
+          </Reveal>
+          <Reveal className="experience-preview" delay={0.12}>
+            <SystemPreview />
+          </Reveal>
         </div>
       </section>
-      <section className="section wrap statement-section">
-        <Eyebrow>BUILT FOR THE PEOPLE BEHIND THE PROCESS</Eyebrow>
-        <h2>
-          Less time connecting the dots.
-          <br />
-          <em>More time moving the business.</em>
-        </h2>
-        <p>
-          For service teams, fixed ops leaders, and dealership groups ready to
-          put practical AI to work.
-        </p>
-        <TextLink to="/about">Meet Validata Systems</TextLink>
+      <section className="section wrap motion-approach">
+        <Reveal className="section-heading">
+          <div>
+            <Eyebrow>THE VALIDATA APPROACH</Eyebrow>
+            <h2>
+              Built with context.
+              <br />
+              <em>Designed for control.</em>
+            </h2>
+          </div>
+          <TextLink to="/technology">Inside our technology</TextLink>
+        </Reveal>
+        <div className="approach-panels">
+          {[
+            {
+              n: "01",
+              icon: Layers3,
+              title: "Understand the work.",
+              text: "The real documents. The actual workflow. The exceptions that make your operation different.",
+            },
+            {
+              n: "02",
+              icon: Braces,
+              title: "Build around the detail.",
+              text: "Connect domain knowledge, source data, and the right tools around a clearly defined outcome.",
+            },
+            {
+              n: "03",
+              icon: ShieldCheck,
+              title: "Keep people in control.",
+              text: "Make the findings inspectable, the boundaries explicit, and the next decision clear.",
+            },
+          ].map((item, index) => (
+            <Reveal
+              className="approach-panel"
+              key={item.n}
+              delay={index * 0.08}
+            >
+              <div>
+                <span>{item.n}</span>
+                <item.icon size={28} strokeWidth={1.3} />
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </Reveal>
+          ))}
+        </div>
       </section>
       <ContactCTA />
     </>

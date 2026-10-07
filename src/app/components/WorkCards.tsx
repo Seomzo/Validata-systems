@@ -9,10 +9,12 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import { Reveal } from "./SiteMotion";
+
 export function WorkCards() {
   return (
     <div className="work-grid">
-      <article className="work-card">
+      <Reveal className="work-card">
         <div className="work-art claim-art" aria-hidden="true">
           <div className="mini-document">
             <div>
@@ -47,8 +49,8 @@ export function WorkCards() {
             <ArrowUpRight size={17} />
           </Link>
         </div>
-      </article>
-      <article className="work-card">
+      </Reveal>
+      <Reveal className="work-card">
         <div className="work-art reports-art" aria-hidden="true">
           <div className="mini-report">
             <div>
@@ -85,8 +87,8 @@ export function WorkCards() {
             <ArrowUpRight size={17} />
           </a>
         </div>
-      </article>
-      <article className="work-card">
+      </Reveal>
+      <Reveal className="work-card">
         <div className="work-art agents-art" aria-hidden="true">
           <div className="mini-agent">
             <div>
@@ -118,7 +120,7 @@ export function WorkCards() {
             <ArrowUpRight size={17} />
           </Link>
         </div>
-      </article>
+      </Reveal>
     </div>
   );
 }

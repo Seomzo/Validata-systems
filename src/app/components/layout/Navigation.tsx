@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { motion, useScroll } from "motion/react";
 import { Brand } from "../Brand";
 
 const links = [
@@ -10,6 +11,7 @@ const links = [
   ["Trust", "/security"],
 ];
 export function Navigation() {
+  const { scrollYProgress } = useScroll();
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   return (
@@ -19,6 +21,11 @@ export function Navigation() {
         if (event.key === "Escape") setOpen(false);
       }}
     >
+      <motion.div
+        className="scroll-progress"
+        style={{ scaleX: scrollYProgress }}
+        aria-hidden="true"
+      />
       <a className="skip-link" href="#main">
         Skip to content
       </a>

@@ -6,6 +6,7 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
+import { SiteMotion, RouteFrame } from "@/app/components/SiteMotion";
 import { Navigation } from "@/app/components/layout/Navigation";
 import { Footer } from "@/app/components/layout/Footer";
 import { HomePage } from "@/app/pages/HomePage";
@@ -19,7 +20,7 @@ import { ContactPage } from "@/app/pages/ContactPage";
 
 const metadata: Record<string, [string, string]> = {
   "/": [
-    "Applied AI for Automotive",
+    "Intelligence in motion.",
     "Validata Systems builds applied AI for automotive operations: warranty review, fixed ops reporting, and specialized dealership agents.",
   ],
   "/products": [
@@ -81,40 +82,42 @@ function RouteEffects() {
 function App() {
   return (
     <BrowserRouter>
-      <RouteEffects />
-      <Navigation />
-      <main id="main" tabIndex={-1}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/claimscanner" element={<ClaimScannerPage />} />
-          <Route path="/agents" element={<AgentsPage />} />
-          <Route path="/technology" element={<TechnologyPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/security" element={<SecurityPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route
-            path="*"
-            element={
-              <section className="wrap page-intro">
-                <p className="eyebrow">404 / PAGE NOT FOUND</p>
-                <h1>
-                  A different
-                  <br />
-                  <em>way forward.</em>
-                </h1>
-                <p className="intro-copy">
-                  This page isn’t here. Let’s get you back to our work.
-                </p>
-                <Link className="button" to="/">
-                  Back to Validata
-                </Link>
-              </section>
-            }
-          />
-        </Routes>
-      </main>
-      <Footer />
+      <SiteMotion>
+        <RouteEffects />
+        <Navigation />
+        <RouteFrame>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/claimscanner" element={<ClaimScannerPage />} />
+            <Route path="/agents" element={<AgentsPage />} />
+            <Route path="/technology" element={<TechnologyPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/security" element={<SecurityPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route
+              path="*"
+              element={
+                <section className="wrap page-intro">
+                  <p className="eyebrow">404 / PAGE NOT FOUND</p>
+                  <h1>
+                    A different
+                    <br />
+                    <em>way forward.</em>
+                  </h1>
+                  <p className="intro-copy">
+                    This page isn’t here. Let’s get you back to our work.
+                  </p>
+                  <Link className="button" to="/">
+                    Back to Validata
+                  </Link>
+                </section>
+              }
+            />
+          </Routes>
+        </RouteFrame>
+        <Footer />
+      </SiteMotion>
     </BrowserRouter>
   );
 }
