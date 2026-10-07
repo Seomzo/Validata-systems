@@ -1,68 +1,49 @@
-import { Link } from 'react-router-dom';
-import logo from '@/assets/logo.png';
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+import { Brand } from "../Brand";
+import { MotionToggle } from "../SiteMotion";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Company Info */}
-          <div className="md:col-span-2">
-            <img src={logo} alt="Validata Systems" className="h-12 mb-4" />
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Applied AI systems for automotive compliance and validation.
-            </p>
-          </div>
-
-          {/* Product Links */}
-          <div>
-            <h4 className="font-medium text-gray-900 mb-4">Product</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/products" className="text-sm text-gray-600 hover:text-gray-900">
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link to="/claimscanner" className="text-sm text-gray-600 hover:text-gray-900">
-                  ClaimScanner.ai
-                </Link>
-              </li>
-              <li>
-                <Link to="/technology" className="text-sm text-gray-600 hover:text-gray-900">
-                  Technology
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h4 className="font-medium text-gray-900 mb-4">Company</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/about" className="text-sm text-gray-600 hover:text-gray-900">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/security" className="text-sm text-gray-600 hover:text-gray-900">
-                  Security
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-sm text-gray-600 hover:text-gray-900">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Validata Systems. All rights reserved.
+    <footer className="site-footer wrap">
+      <div className="footer-top">
+        <div className="footer-brand">
+          <Link to="/" aria-label="Validata Systems home">
+            <Brand />
+          </Link>
+          <p>
+            Real work. Intelligent systems.
+            <br />
+            Built for automotive.
           </p>
+        </div>
+        <nav className="footer-links" aria-label="Our work">
+          <h2>Our work</h2>
+          <Link to="/claimscanner">ClaimScanner</Link>
+          <a
+            href="https://www.fixedopsreports.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Fixed Ops Reports <ArrowUpRight size={13} />
+          </a>
+          <Link to="/agents">Dealership agents</Link>
+        </nav>
+        <nav className="footer-links" aria-label="Company">
+          <h2>Company</h2>
+          <Link to="/about">About Validata</Link>
+          <Link to="/technology">Technology</Link>
+          <Link to="/security">Trust & security</Link>
+          <Link to="/contact">
+            Get in touch <ArrowUpRight size={13} />
+          </Link>
+        </nav>
+      </div>
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} Validata Systems</p>
+        <div className="footer-preferences">
+          <span>Built for the details that matter.</span>
+          <MotionToggle />
         </div>
       </div>
     </footer>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://validatasystems.com/sitemap.xml

@@ -1,214 +1,121 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle2, Shield, Cpu, Database } from 'lucide-react';
-import { Badge } from '@/app/components/ui/badge';
-import claimscannerAsset from '@/assets/claimscanner-asset.png';
-import vsVid from '@/assets/VSvid1.webm';
+import { Braces, Layers3, ShieldCheck } from "lucide-react";
+import { ContactCTA, Eyebrow, TextLink } from "../components/Sections";
+import { ProductStory } from "../components/ProductStory";
+import { SystemOrbit } from "../components/SystemOrbit";
+import { Reveal } from "../components/SiteMotion";
+import { ShowroomHero } from "../components/ShowroomHero";
+import diagnosticDetail from "../../assets/diagnostic-detail.jpg";
 
 export function HomePage() {
   return (
-    <div className="flex-1">
-      {/* Hero Section — Full Width Video Background */}
-      <section className="relative pt-40 lg:pt-48 pb-24 lg:pb-32 px-6 lg:px-8 overflow-hidden min-h-[700px] lg:min-h-[800px] flex items-center">
-        {/* Background Video */}
-        <div className="absolute inset-0 w-full h-full bg-black">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-60"
-          >
-            <source src={vsVid} type="video/webm" />
-          </video>
-          {/* Gradient Overlay for better readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/40 to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
-          <div className="max-w-3xl">
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-              className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6 text-white font-medium"
-            >
-              Applied AI Systems for Automotive Compliance and Validation
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.12 }}
-              className="text-lg md:text-xl text-gray-200 mb-4 leading-relaxed max-w-2xl font-light"
-            >
-              Validata Systems builds AI-powered infrastructure that helps dealerships and manufacturers validate
-              processes, ensure compliance, and automate complex operational workflows.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.18 }}
-              className="text-sm text-gray-400 mb-10 tracking-wide uppercase"
-            >
-              The company behind ClaimScanner.ai.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link
-                to="/claimscanner"
-                className="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
-              >
-                Explore ClaimScanner
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white font-medium rounded-lg hover:border-white hover:bg-white/10 transition-all backdrop-blur-sm"
-              >
-                Talk to Us
-              </Link>
-            </motion.div>
+    <>
+      <ShowroomHero />
+      <section className="section wrap home-work" id="work">
+        <Reveal className="section-heading showroom-work-heading">
+          <div>
+            <Eyebrow>SELECTED WORK & PARTNERSHIPS</Eyebrow>
+            <h2>
+              Real challenges.
+              <br />
+              <em>Remarkable possibilities.</em>
+            </h2>
           </div>
+          <p>
+            Three ways we turn automotive complexity into clarity. Built around
+            the work your team does every day.
+          </p>
+        </Reveal>
+        <ProductStory />
+      </section>
+      <section className="experience-section connected-section">
+        <div className="experience-grid-bg" aria-hidden="true" />
+        <div className="wrap experience-layout">
+          <Reveal className="experience-copy">
+            <Eyebrow>DIFFERENT SYSTEMS. ONE WAY OF THINKING.</Eyebrow>
+            <h2>
+              Every detail.
+              <br />
+              <em>Part of something bigger.</em>
+            </h2>
+            <p>
+              Documents, data, and daily workflows shouldn’t live in separate
+              worlds. We connect domain knowledge with purpose-built tools, so
+              the next decision starts with context.
+            </p>
+            <TextLink to="/technology">Inside our technology</TextLink>
+            <span className="experience-note">
+              Select a system to see what connects.
+            </span>
+          </Reveal>
+          <SystemOrbit />
         </div>
       </section>
-
-      {/* What We Build */}
-      <section className="py-20 px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mb-16">
-            <h2 className="text-3xl md:text-4xl tracking-tight mb-4">What We Build</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Validata Systems designs and deploys applied AI products that operate at the intersection of data
-              integrity, compliance, and automation. Our systems are built for regulated, high-stakes environments where
-              accuracy and trust matter.
+      <section className="section wrap craft-section">
+        <Reveal className="craft-photograph">
+          <img
+            src={diagnosticDetail}
+            alt="Illustrative automotive diagnostic work with a tablet beside an open engine compartment"
+            loading="lazy"
+            width={1254}
+            height={1254}
+          />
+          <div className="craft-image-caption">
+            <span>CONTEXT IS EVERYTHING.</span>
+            <p>
+              Built for the real world.
+              <br />
+              Down to the last detail.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
+        </Reveal>
+        <div className="craft-copy">
+          <Reveal>
+            <Eyebrow>THE VALIDATA APPROACH</Eyebrow>
+            <h2>
+              Complex work.
+              <br />
+              <em>Considered systems.</em>
+            </h2>
+            <p className="craft-intro">
+              Good intelligence starts with understanding the work. Great
+              systems keep the people doing it in control.
+            </p>
+          </Reveal>
+          <div className="craft-principles">
             {[
               {
-                icon: CheckCircle2,
-                title: 'Validation Systems',
-                description:
-                  'AI that verifies processes, documentation, and workflows against defined standards.',
+                icon: Layers3,
+                title: "Context comes first.",
+                text: "The actual documents. The real workflow. The exceptions that make your operation different.",
               },
               {
-                icon: Shield,
-                title: 'Compliance Automation',
-                description: 'Tools that ensure operational steps align with OEM and regulatory requirements.',
+                icon: Braces,
+                title: "A purpose for every tool.",
+                text: "Domain knowledge and the right integrations, built around a clearly defined outcome.",
               },
               {
-                icon: Cpu,
-                title: 'Applied AI Infrastructure',
-                description: 'Modular systems designed to scale across products and use cases.',
+                icon: ShieldCheck,
+                title: "People stay in control.",
+                text: "Inspectable findings, explicit boundaries, and human checkpoints where they matter.",
               },
             ].map((item, index) => (
-              <motion.div
+              <Reveal
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-xl border border-gray-200 hover:border-blue-200 transition-colors"
+                className="craft-principle"
+                delay={index * 0.08}
               >
-                <item.icon className="w-10 h-10 text-blue-500 mb-4" />
-                <h3 className="text-xl mb-3">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
-              </motion.div>
+                <item.icon size={23} strokeWidth={1.5} />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
+          <TextLink to="/about">Meet Validata Systems</TextLink>
         </div>
       </section>
-
-      {/* Flagship Product */}
-      <section className="py-20 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Badge variant="secondary" className="mb-4">
-                Flagship Product
-              </Badge>
-              <h2 className="text-3xl md:text-4xl tracking-tight mb-4">ClaimScanner.ai</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                An AI-powered validation system designed to analyze automotive repair orders and diagnostic data to
-                ensure warranty compliance before claim submission.
-              </p>
-
-              <ul className="space-y-4 mb-8">
-                {[
-                  'Identifies missing or incorrect diagnostic steps',
-                  'Cross-checks repair documentation against OEM standards',
-                  'Reduces warranty claim rejections',
-                  'Improves technician and advisor compliance',
-                ].map((item) => (
-                  <li key={item} className="flex items-start">
-                    <CheckCircle2 className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex items-center gap-4 mb-6">
-                <Badge variant="outline">In Development / MVP</Badge>
-              </div>
-
-              <Link
-                to="/claimscanner"
-                className="inline-flex items-center text-blue-500 hover:text-blue-600"
-              >
-                Explore ClaimScanner
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-blue-50 to-gray-50 rounded-2xl p-4 md:p-8 flex items-center justify-center overflow-hidden"
-            >
-              <img 
-                src={claimscannerAsset} 
-                alt="ClaimScanner.ai" 
-                className="w-full h-auto rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100" 
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Platform Vision */}
-      <section className="py-20 px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl md:text-4xl tracking-tight mb-6">Platform Vision</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Validata Systems is building a modular AI platform where validation, compliance, and automation
-              capabilities can be applied across multiple products and operational domains within the automotive
-              ecosystem.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+      <ContactCTA />
+    </>
   );
 }

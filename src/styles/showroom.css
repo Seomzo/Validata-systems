@@ -1,0 +1,655 @@
+.showroom-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #05080f;
+  color: #f5f8ff;
+}
+.showroom-hero .showroom-eyebrow,
+.showroom-hero .showroom-insight-label,
+.showroom-hero .showroom-insight-label > span:last-child,
+.showroom-hero .showroom-flow > span {
+  font-size: 0.6875rem;
+}
+.showroom-backdrop {
+  position: absolute;
+  z-index: -3;
+  inset: 0 0 80px;
+  overflow: hidden;
+}
+.showroom-backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 60%;
+}
+.showroom-shade {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #05080ff5 0%, #05080fb8 35%, #05080f20 74%),
+    linear-gradient(
+      0deg,
+      #05080f 2%,
+      #05080f28 38%,
+      #05080f26 70%,
+      #05080f90 100%
+    );
+}
+.showroom-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: end;
+  gap: clamp(30px, 5vw, 90px);
+  min-height: 640px;
+  padding-block: 74px 76px;
+  position: relative;
+}
+.showroom-copy {
+  max-width: 630px;
+}
+.showroom-eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: #c2d2e5;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 28px;
+}
+.showroom-eyebrow > span {
+  width: 6px;
+  height: 6px;
+  background: #23b1de;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #23b1de;
+}
+.showroom-copy h1 {
+  font-size: clamp(68px, 7.7vw, 112px);
+  line-height: 1.035;
+  letter-spacing: -0.072em;
+  font-weight: 550;
+  margin: 0 0 29px;
+}
+.showroom-copy h1 > span {
+  display: block;
+  animation: showroom-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.showroom-copy h1 > span:last-child {
+  animation-delay: 0.12s;
+}
+.showroom-copy h1 em {
+  color: #5ac9f4;
+  font-weight: 550;
+}
+.showroom-description {
+  font-size: 1rem;
+  color: #c6d3e3;
+  line-height: 1.8;
+  max-width: 415px;
+  animation: showroom-enter 0.9s 0.2s both;
+}
+.showroom-copy .hero-actions {
+  margin-top: 30px;
+  gap: 27px;
+  animation: showroom-enter 0.9s 0.3s both;
+}
+.showroom-insight {
+  border: 1px solid #819ab44d;
+  padding: 22px 26px 18px;
+  border-radius: 16px;
+  background: #091422f5;
+  box-shadow: 0 18px 60px #0004;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 0 0 auto;
+}
+.showroom-insight-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.625rem;
+  color: #b5c7dd;
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+}
+.showroom-insight-label > span:last-child {
+  margin-left: auto;
+  font-size: 0.5625rem;
+  color: #adbed2;
+}
+.showroom-insight p {
+  font-size: 0.75rem;
+  color: #b0c0d7;
+  margin: 0 0 7px;
+}
+.showroom-insight h2 {
+  font-size: clamp(22px, 2.2vw, 29px);
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+  max-width: 320px;
+  min-height: 2.5em;
+}
+.showroom-flow {
+  display: flex;
+  margin: 20px 0 6px;
+  position: relative;
+}
+.showroom-flow:before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, #2196f3, #648db6);
+  top: 4px;
+  left: 4px;
+  right: 28%;
+}
+.showroom-flow > span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.625rem;
+  line-height: 1.55;
+  padding-right: 12px;
+  position: relative;
+  color: #cedbec;
+}
+.showroom-flow i {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #5ac9f4;
+  border: 2px solid #0d2840;
+  outline: 1px solid #5ac9f4;
+  margin-bottom: 9px;
+}
+.showroom-insight a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.75rem;
+  min-height: 44px;
+  color: #81d6ff;
+  margin-top: 4px;
+}
+.showroom-insight a:hover {
+  color: white;
+}
+.showroom-bottom {
+  position: relative;
+}
+.showroom-selector {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #8fa4bd4a;
+  border-bottom: 1px solid #8fa4bd30;
+}
+.showroom-selector button {
+  min-width: 0;
+  color: #adbed3;
+  position: relative;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: transparent;
+  padding: 25px 26px;
+  min-height: 98px;
+  border: 0;
+  border-right: 1px solid #8fa4bd30;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.showroom-selector button:first-child {
+  padding-left: 0;
+}
+.showroom-selector button:last-child {
+  border-right: 0;
+}
+.showroom-selector button > svg {
+  flex-shrink: 0;
+}
+.showroom-selector strong {
+  display: block;
+  font-weight: 600;
+  color: #f5f8ff;
+  font-size: 0.9375rem;
+  margin-bottom: 5px;
+  overflow-wrap: anywhere;
+}
+.showroom-selector small {
+  display: block;
+  font-size: 0.75rem;
+}
+.showroom-selector button[aria-pressed="true"],
+.showroom-selector button:hover {
+  color: #81d6ff;
+  background: linear-gradient(180deg, #2196f318, transparent);
+}
+.showroom-select-arrow {
+  margin-left: auto;
+}
+.showroom-active-line {
+  height: 2px;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  background: #5ac9f4;
+  box-shadow: 0 0 16px #2196f388;
+}
+.showroom-utility {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 19px;
+  color: #b0c0d7;
+  font-size: 0.6875rem;
+}
+.showroom-utility > a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+}
+.showroom-utility .motion-toggle {
+  background: #08111d;
+}
+.showroom-work-heading {
+  align-items: end;
+  margin-bottom: 48px;
+}
+.showroom-work-heading h2 {
+  font-size: clamp(35px, 4.2vw, 60px);
+}
+.showroom-work-heading > p {
+  color: #526478;
+  font-size: 1rem;
+  max-width: 300px;
+}
+.connected-section {
+  padding-block: 75px;
+}
+.connected-section .experience-layout {
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 55px;
+}
+.connected-section .experience-copy h2 {
+  font-size: clamp(36px, 4vw, 57px);
+}
+.connected-section .experience-copy > p {
+  font-size: 1rem;
+  color: #b0c0d7;
+  max-width: 400px;
+}
+.connected-section .experience-copy > .eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1.6;
+  margin-top: 0;
+}
+.connected-section .text-link {
+  color: #81d6ff;
+  min-height: 44px;
+  margin-top: 22px;
+  font-size: 0.875rem;
+}
+.connected-section .text-link:hover {
+  color: #f5f8ff;
+}
+.connected-section .experience-note {
+  color: #b0c0d7;
+  font-size: 0.75rem;
+  margin-top: 20px;
+}
+.craft-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 7vw, 100px);
+  align-items: center;
+}
+.craft-photograph {
+  align-self: stretch;
+  min-height: 600px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #0c1829;
+}
+.craft-photograph img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 44% center;
+}
+.craft-photograph:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #05080fe8, transparent 60%);
+  z-index: 1;
+}
+.craft-image-caption {
+  position: absolute;
+  bottom: 38px;
+  left: 36px;
+  right: 30px;
+  color: white;
+  z-index: 2;
+}
+.craft-image-caption span {
+  font-size: 0.6875rem;
+  letter-spacing: 0.05em;
+  font-family: "IBM Plex Mono", monospace;
+  color: #c2d2e5;
+}
+.craft-image-caption p {
+  font-size: clamp(25px, 2.9vw, 40px);
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+  margin-top: 15px;
+}
+.craft-copy h2 {
+  font-size: clamp(32px, 3.4vw, 48px);
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+}
+.craft-copy h2 em {
+  color: #086aab;
+}
+.craft-intro {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #526478;
+  margin-top: 24px;
+}
+.craft-principles {
+  margin-block: 24px;
+}
+.craft-principle {
+  display: flex;
+  gap: 18px;
+  padding-block: 23px;
+  border-bottom: 1px solid #dce6f0;
+}
+.craft-principle > svg {
+  flex-shrink: 0;
+  color: #086aab;
+  margin-top: 2px;
+}
+.craft-principle h3 {
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 7px;
+}
+.craft-principle p {
+  font-size: 0.875rem;
+  color: #526478;
+  line-height: 1.8;
+}
+.craft-copy > .text-link {
+  min-height: 44px;
+  font-size: 0.875rem;
+  color: #086aab;
+}
+@keyframes showroom-enter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (min-width: 1550px) {
+  .showroom-content {
+    min-height: 720px;
+  }
+}
+@media (max-width: 1000px) {
+  .showroom-content {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 25px;
+    min-height: 600px;
+    padding-block: 60px;
+  }
+  .showroom-copy h1 {
+    font-size: clamp(58px, 7.5vw, 76px);
+  }
+  .showroom-insight {
+    padding: 18px;
+  }
+  .showroom-insight-label > span:last-child {
+    display: none;
+  }
+  .showroom-selector button {
+    gap: 12px;
+    padding: 22px 16px;
+  }
+  .showroom-selector strong {
+    font-size: 0.8125rem;
+  }
+  .showroom-select-arrow {
+    display: none;
+  }
+  .craft-section {
+    gap: 40px;
+  }
+  .craft-photograph {
+    min-height: 630px;
+  }
+  .connected-section .experience-layout {
+    gap: 25px;
+  }
+}
+@media (max-width: 800px) {
+  .showroom-content {
+    display: block;
+    min-height: 0;
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  .showroom-backdrop {
+    inset: 0 0 170px;
+  }
+  .showroom-backdrop img {
+    object-position: 65% center;
+  }
+  .showroom-shade {
+    background:
+      linear-gradient(90deg, #05080feb, #05080f65),
+      linear-gradient(0deg, #05080f 12%, transparent 50%, #05080f77);
+  }
+  .showroom-copy h1 {
+    font-size: clamp(62px, 10.8vw, 86px);
+  }
+  .showroom-description {
+    max-width: 410px;
+  }
+  .showroom-insight {
+    margin: 55px 0 0 auto;
+    max-width: 350px;
+  }
+  .showroom-insight h2 {
+    min-height: 0;
+    font-size: 25px;
+  }
+  .showroom-selector button {
+    padding: 20px 12px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .showroom-selector button:first-child {
+    padding-left: 12px;
+  }
+  .showroom-selector strong {
+    font-size: 0.75rem;
+  }
+  .showroom-selector small {
+    font-size: 0.625rem;
+  }
+  .showroom-utility > span {
+    display: none;
+  }
+  .connected-section .experience-layout {
+    display: block;
+  }
+  .connected-section .experience-copy {
+    max-width: 570px;
+  }
+  .connected-section .orbit-experience {
+    width: min(600px, 100%);
+    margin: 35px auto 0;
+  }
+  .craft-section {
+    grid-template-columns: 1fr;
+  }
+  .craft-photograph {
+    min-height: 0;
+    aspect-ratio: 1.25;
+  }
+  .craft-copy {
+    max-width: 600px;
+  }
+  .showroom-work-heading {
+    margin-bottom: 35px;
+  }
+}
+@media (max-width: 600px) {
+  .showroom-content {
+    padding-top: 42px;
+  }
+  .showroom-copy h1 {
+    font-size: clamp(50px, 11.7vw, 70px);
+    letter-spacing: -0.065em;
+  }
+  .showroom-eyebrow {
+    font-size: 0.5625rem;
+    letter-spacing: 0.025em;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .showroom-description {
+    font-size: 0.9375rem;
+    max-width: 350px;
+  }
+  .showroom-copy .hero-actions {
+    gap: 19px;
+    flex-wrap: wrap;
+  }
+  .showroom-copy .button-electric {
+    padding: 14px 18px;
+    min-height: 50px;
+    gap: 14px;
+  }
+  .showroom-insight {
+    margin-top: 130px;
+    max-width: none;
+    padding: 20px;
+  }
+  .showroom-backdrop {
+    inset: 0 0 220px;
+  }
+  .showroom-backdrop img {
+    object-position: 67% center;
+  }
+  .showroom-shade {
+    background: linear-gradient(
+      0deg,
+      #05080f 15%,
+      #05080f08 50%,
+      #05080fd9 75%,
+      #05080f 100%
+    );
+  }
+  .showroom-insight-label {
+    font-size: 0.625rem;
+  }
+  .showroom-insight-label > span:last-child {
+    display: inline;
+  }
+  .showroom-flow > span {
+    font-size: 0.6875rem;
+  }
+  .showroom-selector button {
+    padding: 18px 10px;
+  }
+  .showroom-selector strong {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  .showroom-selector small {
+    display: none;
+  }
+  .showroom-utility {
+    font-size: 0.6875rem;
+    gap: 10px;
+  }
+  .showroom-utility .motion-toggle {
+    font-size: 0.75rem;
+    padding-inline: 11px;
+  }
+  .home-work.section {
+    padding-top: 65px;
+  }
+  .showroom-work-heading h2 {
+    font-size: clamp(32px, 8.6vw, 44px);
+  }
+  .showroom-work-heading > p {
+    font-size: 0.9375rem;
+  }
+  .connected-section {
+    padding-block: 60px;
+  }
+  .connected-section .experience-copy h2 {
+    font-size: 38px;
+  }
+  .craft-section {
+    padding-block: 65px;
+    gap: 35px;
+  }
+  .craft-photograph {
+    aspect-ratio: 0.95;
+    border-radius: 18px;
+  }
+  .craft-image-caption {
+    left: 25px;
+    bottom: 28px;
+  }
+  .craft-image-caption p {
+    font-size: 30px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .showroom-copy h1 > span,
+  .showroom-description,
+  .showroom-copy .hero-actions {
+    animation: none;
+  }
+  .showroom-selector button {
+    transition: none;
+  }
+}
+[data-motion="reduced"] .showroom-backdrop {
+  transform: none !important;
+}
+[data-motion="paused"] .showroom-copy h1 > span,
+[data-motion="paused"] .showroom-description,
+[data-motion="paused"] .showroom-copy .hero-actions {
+  animation: none;
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .showroom-insight {
+    background: #091422;
+  }
+}
