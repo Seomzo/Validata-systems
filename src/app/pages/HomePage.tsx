@@ -1,90 +1,17 @@
-import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  Braces,
-  Layers3,
-  ShieldCheck,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+import { Braces, Layers3, ShieldCheck } from "lucide-react";
 import { ContactCTA, Eyebrow, TextLink } from "../components/Sections";
 import { ProductStory } from "../components/ProductStory";
 import { SystemOrbit } from "../components/SystemOrbit";
-import { SystemPreview } from "../components/SystemPreview";
-import { MotionToggle, Reveal } from "../components/SiteMotion";
+import { Reveal } from "../components/SiteMotion";
+import { ShowroomHero } from "../components/ShowroomHero";
+import diagnosticDetail from "../../assets/diagnostic-detail.jpg";
 
 export function HomePage() {
   return (
     <>
-      <section className="motion-hero">
-        <div className="hero-atmosphere" aria-hidden="true">
-          <div className="atmosphere-glow" />
-          <div className="perspective-grid" />
-          <div className="hero-horizon" />
-        </div>
-        <div className="wrap motion-hero-grid">
-          <div className="motion-hero-copy">
-            <div className="hero-kicker">
-              <span className="signal-dot" />
-              APPLIED AI. REAL AUTOMOTIVE WORK.
-            </div>
-            <h1>
-              <span>Intelligence.</span>
-              <span>
-                In <em>motion.</em>
-              </span>
-            </h1>
-            <p>
-              Better decisions. Connected operations.
-              <br />
-              We build the systems that move dealerships forward.
-            </p>
-            <div className="hero-actions">
-              <a href="#work" className="button button-electric">
-                Explore our work
-                <ArrowUpRight size={18} />
-              </a>
-              <Link to="/contact" className="hero-secondary">
-                Build with us
-                <ArrowRight size={17} />
-              </Link>
-            </div>
-            <div className="hero-signature">
-              <span />
-              Warranty intelligence. Operational visibility.
-              <br />
-              Purpose-built agents.
-            </div>
-          </div>
-          <SystemOrbit />
-        </div>
-        <div className="wrap motion-hero-bottom">
-          <a href="#work">
-            <span className="scroll-cue">
-              <ArrowDown size={13} />
-            </span>
-            SCROLL TO EXPLORE
-          </a>
-          <span>BUILT FOR THE DETAILS. DESIGNED FOR WHAT’S NEXT.</span>
-          <MotionToggle />
-        </div>
-      </section>
-      <div className="discipline-band">
-        <div className="wrap">
-          <span>
-            ONE FOCUS. <strong>AUTOMOTIVE.</strong>
-          </span>
-          <div>
-            <span>VALIDATE</span>
-            <i />
-            <span>UNDERSTAND</span>
-            <i />
-            <span>COORDINATE</span>
-          </div>
-        </div>
-      </div>
+      <ShowroomHero />
       <section className="section wrap home-work" id="work">
-        <Reveal className="section-heading">
+        <Reveal className="section-heading showroom-work-heading">
           <div>
             <Eyebrow>SELECTED WORK & PARTNERSHIPS</Eyebrow>
             <h2>
@@ -94,82 +21,98 @@ export function HomePage() {
             </h2>
           </div>
           <p>
-            From the evidence inside a claim to the bigger picture across an
-            operation. This is where our intelligence gets to work.
+            Three ways we turn automotive complexity into clarity. Built around
+            the work your team does every day.
           </p>
         </Reveal>
         <ProductStory />
       </section>
-      <section className="experience-section">
+      <section className="experience-section connected-section">
         <div className="experience-grid-bg" aria-hidden="true" />
         <div className="wrap experience-layout">
           <Reveal className="experience-copy">
-            <Eyebrow>GO BEYOND THE OVERVIEW</Eyebrow>
+            <Eyebrow>DIFFERENT SYSTEMS. ONE WAY OF THINKING.</Eyebrow>
             <h2>
-              Don’t just read it.
+              Every detail.
               <br />
-              <em>Explore it.</em>
+              <em>Part of something bigger.</em>
             </h2>
             <p>
-              Switch between warranty, reporting, and agents to see how each
-              system connects the pieces.
+              Documents, data, and daily workflows shouldn’t live in separate
+              worlds. We connect domain knowledge with purpose-built tools, so
+              the next decision starts with context.
             </p>
+            <TextLink to="/technology">Inside our technology</TextLink>
             <span className="experience-note">
-              <span className="signal-dot" />
-              Interactive illustrations · sample data
+              Select a system to see what connects.
             </span>
           </Reveal>
-          <Reveal className="experience-preview" delay={0.12}>
-            <SystemPreview />
-          </Reveal>
+          <SystemOrbit />
         </div>
       </section>
-      <section className="section wrap motion-approach">
-        <Reveal className="section-heading">
-          <div>
+      <section className="section wrap craft-section">
+        <Reveal className="craft-photograph">
+          <img
+            src={diagnosticDetail}
+            alt="Illustrative automotive diagnostic work with a tablet beside an open engine compartment"
+            loading="lazy"
+            width={1254}
+            height={1254}
+          />
+          <div className="craft-image-caption">
+            <span>CONTEXT IS EVERYTHING.</span>
+            <p>
+              Built for the real world.
+              <br />
+              Down to the last detail.
+            </p>
+          </div>
+        </Reveal>
+        <div className="craft-copy">
+          <Reveal>
             <Eyebrow>THE VALIDATA APPROACH</Eyebrow>
             <h2>
-              Built with context.
+              Complex work.
               <br />
-              <em>Designed for control.</em>
+              <em>Considered systems.</em>
             </h2>
+            <p className="craft-intro">
+              Good intelligence starts with understanding the work. Great
+              systems keep the people doing it in control.
+            </p>
+          </Reveal>
+          <div className="craft-principles">
+            {[
+              {
+                icon: Layers3,
+                title: "Context comes first.",
+                text: "The actual documents. The real workflow. The exceptions that make your operation different.",
+              },
+              {
+                icon: Braces,
+                title: "A purpose for every tool.",
+                text: "Domain knowledge and the right integrations, built around a clearly defined outcome.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "People stay in control.",
+                text: "Inspectable findings, explicit boundaries, and human checkpoints where they matter.",
+              },
+            ].map((item, index) => (
+              <Reveal
+                key={item.title}
+                className="craft-principle"
+                delay={index * 0.08}
+              >
+                <item.icon size={23} strokeWidth={1.5} />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
-          <TextLink to="/technology">Inside our technology</TextLink>
-        </Reveal>
-        <div className="approach-panels">
-          {[
-            {
-              n: "01",
-              icon: Layers3,
-              title: "Understand the work.",
-              text: "The real documents. The actual workflow. The exceptions that make your operation different.",
-            },
-            {
-              n: "02",
-              icon: Braces,
-              title: "Build around the detail.",
-              text: "Connect domain knowledge, source data, and the right tools around a clearly defined outcome.",
-            },
-            {
-              n: "03",
-              icon: ShieldCheck,
-              title: "Keep people in control.",
-              text: "Make the findings inspectable, the boundaries explicit, and the next decision clear.",
-            },
-          ].map((item, index) => (
-            <Reveal
-              className="approach-panel"
-              key={item.n}
-              delay={index * 0.08}
-            >
-              <div>
-                <span>{item.n}</span>
-                <item.icon size={28} strokeWidth={1.3} />
-              </div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </Reveal>
-          ))}
+          <TextLink to="/about">Meet Validata Systems</TextLink>
         </div>
       </section>
       <ContactCTA />

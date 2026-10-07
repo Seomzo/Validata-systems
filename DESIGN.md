@@ -6,7 +6,9 @@ The audience is dealership operators, prospective partners, and people viewing a
 
 Use [Apple Design](https://github.com/dickwu/apple-design-skill/blob/main/SKILL.md) in improvement mode. Read the relevant foundation and interaction references, review the current screen, define one product-specific interaction, implement, and verify. This is a React website; native tab bars, window chrome, and Apple system fonts aren't requirements.
 
-The current review found that one-time fade-ins and slow independent loops did little to explain the work. The signature interaction is now a scroll-driven portfolio: as each explanation reaches the reader, a shared illustration assembles the relevant documents, report, or workflow. Hero selection also visibly connects the chosen system to its input and outcome.
+The latest review found that the abstract hero and long sticky chapters made the work feel remote and the page too repetitive. The signature is now a cinematic service-bay opening with an interactive intelligence layer: selecting a product connects its inputs, tools, and human outcome. A large ClaimScanner feature leads into paired Reporting and Agent showcases. The original interactive system map sits beside the technology explanation, and a second photographic asset grounds the operating principles in actual automotive work.
+
+This direction is specific to dealership operations: source documents, diagnostic work, reporting, and handoffs provide the visual vocabulary. The repeated interactive overview was removed to give each section one job. Photos are illustrative brand imagery; diagrams label their concept/sample status and do not present invented outcomes as product evidence.
 
 Sources used:
 
@@ -23,7 +25,7 @@ The files live in the installed skill's `references/hig/`. The reference source 
 
 ## Tokens and layout
 
-Manrope stays the display and body face, with IBM Plex Mono reserved for genuine technical annotations. New content uses 16px body copy, 12–14px controls, 11px minimum diagram labels, and responsive 35–51px story headlines. Controls target at least 44px in both dimensions where possible.
+Manrope stays the display and body face, with IBM Plex Mono reserved for technical annotations. New content uses 16px body copy, 12–14px controls, 11px minimum diagram labels, and responsive 32–58px section headlines. The hero uses a single 50–112px display moment. Controls target at least 44px in both dimensions. Hero image movement follows ordinary scrolling; selectors respond in 200–350ms. Reduced motion removes movement and manual pause disables scroll-linked image movement and ambient loops.
 
 | Role              | Light section | Dark section | Contrast against section background            |
 | ----------------- | ------------- | ------------ | ---------------------------------------------- |
@@ -40,26 +42,36 @@ Regular width:
 
 ```
 Original logo + navigation
-Hero copy       Interactive system orbit
+Immersive automotive photograph
+Hero copy       Interactive input → outcome
+Three product selectors + motion control
 Portfolio title
-Claim story     [sticky illustration]
-Report story    [transitions with scrolling]
-Agent story     [normal page scroll]
-Interactive overview + approach + contact
+ClaimScanner feature + source-document scene
+Reporting feature | Agent feature
+Technology copy | Interactive system map
+Diagnostic photo | Operating principles
+Contact + readable footer
 ```
 
 Compact width or short viewport:
 
 ```
 Original logo + navigation
-Hero copy + orbit
+Hero copy + vehicle image + input → outcome
+Three product selectors + motion control
 Claim copy + its illustration
 Report copy + its illustration
 Agent copy + its illustration
-Overview + approach + contact
+Technology copy + system map
+Diagnostic photograph + principles
+Contact + footer
 ```
 
-The portfolio is deliberately specific to dealership work: real document types, reporting categories, and human checkpoints. Generic device mockups, fake results, scroll hijacking, and autoplaying carousels would weaken it. Decorative chapter numbers were removed from the discipline strip because the three product areas aren't a required sequence.
+The portfolio is deliberately specific to dealership work: real document types, reporting categories, and human checkpoints. Generic device mockups, fake results, scroll hijacking, and autoplaying carousels would weaken it. Decorative numbering was removed from the product overview because the three areas aren't a required sequence.
+
+## Generated assets
+
+Two assets were made with the built-in image generation tool, visually reviewed, and encoded as JPEG for delivery. The original logo was preserved byte-for-byte. Prompts and provenance are recorded in `src/assets/ASSETS.md`. The combined new image payload is approximately 789 KB; only the hero is eager-loaded and the diagnostic image loads lazily.
 
 ## Verification floor
 

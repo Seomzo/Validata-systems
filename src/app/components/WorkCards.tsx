@@ -15,26 +15,28 @@ export function WorkCards() {
   return (
     <div className="work-grid">
       <Reveal className="work-card">
-        <div className="work-art claim-art" aria-hidden="true">
-          <div className="mini-document">
-            <div>
-              <ScanLine size={19} />
-              <span>Claim review</span>
-              <span className="mini-label">CS</span>
+        <figure className="work-visual claim-art">
+          <div className="work-art claim-art" aria-hidden="true">
+            <div className="mini-document">
+              <div>
+                <ScanLine size={19} />
+                <span>Claim review</span>
+                <span className="mini-label">CS</span>
+              </div>
+              <i />
+              <i />
+              <p>
+                <Check size={13} />
+                Diagnostic evidence<span>Matched</span>
+              </p>
+              <p>
+                <FileText size={13} />
+                Repair documentation<span>Review</span>
+              </p>
             </div>
-            <i />
-            <i />
-            <p>
-              <Check size={13} />
-              Diagnostic evidence<span>Matched</span>
-            </p>
-            <p>
-              <FileText size={13} />
-              Repair documentation<span>Review</span>
-            </p>
           </div>
-          <span className="art-index">01 / VALIDATE</span>
-        </div>
+          <figcaption>Illustrative warranty workflow</figcaption>
+        </figure>
         <div className="work-card-copy">
           <span className="mono">WARRANTY INTELLIGENCE</span>
           <h3>
@@ -51,25 +53,27 @@ export function WorkCards() {
         </div>
       </Reveal>
       <Reveal className="work-card">
-        <div className="work-art reports-art" aria-hidden="true">
-          <div className="mini-report">
-            <div>
-              <BarChart3 size={18} />
-              <span>Operational visibility</span>
-            </div>
-            <div className="mini-chart">
-              {[31, 45, 40, 63, 55, 76, 67, 86, 78].map((h, i) => (
-                <span key={i} style={{ height: h + "%" }} />
-              ))}
-            </div>
-            <div className="mini-chart-axis">
-              <span>ADVISORS</span>
-              <span>STORES</span>
-              <span>TRENDS</span>
+        <figure className="work-visual reports-art">
+          <div className="work-art reports-art" aria-hidden="true">
+            <div className="mini-report">
+              <div>
+                <BarChart3 size={18} />
+                <span>Operational visibility</span>
+              </div>
+              <div className="mini-chart">
+                {[31, 45, 40, 63, 55, 76, 67, 86, 78].map((h, i) => (
+                  <span key={i} style={{ height: h + "%" }} />
+                ))}
+              </div>
+              <div className="mini-chart-axis">
+                <span>ADVISORS</span>
+                <span>STORES</span>
+                <span>TRENDS</span>
+              </div>
             </div>
           </div>
-          <span className="art-index">02 / UNDERSTAND</span>
-        </div>
+          <figcaption>Illustrative report · Sample data</figcaption>
+        </figure>
         <div className="work-card-copy">
           <span className="mono">FIXED OPERATIONS</span>
           <h3>Fixed Ops Reports</h3>
@@ -89,25 +93,27 @@ export function WorkCards() {
         </div>
       </Reveal>
       <Reveal className="work-card">
-        <div className="work-art agents-art" aria-hidden="true">
-          <div className="mini-agent">
-            <div>
-              <FileText size={17} />
-              <span>Task</span>
-            </div>
-            <i />
-            <div className="agent-core">
-              <GitBranch size={22} />
-              <span>Agent harness</span>
-            </div>
-            <i />
-            <div>
-              <ShieldCheck size={17} />
-              <span>Controlled action</span>
+        <figure className="work-visual agents-art">
+          <div className="work-art agents-art" aria-hidden="true">
+            <div className="mini-agent">
+              <div>
+                <FileText size={17} />
+                <span>Task</span>
+              </div>
+              <i />
+              <div className="agent-core">
+                <GitBranch size={22} />
+                <span>Agent harness</span>
+              </div>
+              <i />
+              <div>
+                <ShieldCheck size={17} />
+                <span>Controlled action</span>
+              </div>
             </div>
           </div>
-          <span className="art-index">03 / COORDINATE</span>
-        </div>
+          <figcaption>Illustrative agent workflow</figcaption>
+        </figure>
         <div className="work-card-copy">
           <span className="mono">SPECIALIZED AGENT SYSTEMS</span>
           <h3>Dealership agents</h3>

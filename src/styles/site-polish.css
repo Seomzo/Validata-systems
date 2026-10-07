@@ -1,0 +1,107 @@
+/* Shared navigation and product details keep the same readable scale. */
+.site-header .nav-inner {
+  height: auto;
+  min-height: 88px;
+  padding-block: 16px;
+}
+.site-header .menu-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.site-header .nav-cta {
+  min-height: 44px;
+  font-size: 0.75rem;
+}
+
+.footer-brand > a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+.footer-brand p {
+  font-size: 0.875rem;
+  color: #526478;
+}
+
+.footer-top h2 {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  padding-block: 8px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #526478;
+  overflow-wrap: anywhere;
+}
+
+.footer-top > * {
+  min-width: 0;
+}
+.footer-links svg {
+  flex-shrink: 0;
+}
+@media (max-width: 700px) {
+  .site-header .nav-inner {
+    min-height: 76px;
+    padding-block: 12px;
+  }
+  .footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.footer-bottom {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: #526478;
+}
+
+.text-link:hover,
+.site-footer a:hover,
+.mobile-nav a.active {
+  color: #086aab;
+}
+
+.work-visual {
+  margin: 0;
+}
+
+.work-visual .work-art {
+  padding-bottom: 24px;
+}
+
+.work-visual figcaption {
+  padding: 0 24px 18px;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  color: #526478;
+}
+
+@media (max-width: 370px) {
+  .site-header .nav-inner {
+    gap: 8px;
+  }
+
+  .site-header .nav-cta {
+    padding-inline: 8px;
+    gap: 4px;
+  }
+
+  .footer-top {
+    gap: 24px 18px;
+  }
+}

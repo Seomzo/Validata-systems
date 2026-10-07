@@ -1,5 +1,11 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
-import { motion, MotionConfig, useReducedMotion } from "motion/react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
+import { motion, MotionConfig } from "motion/react";
 import { useLocation } from "react-router-dom";
 import { Pause, Play } from "lucide-react";
 
@@ -8,8 +14,21 @@ const MotionPreferences = createContext({
   reduced: false,
   toggle: () => {},
 });
+const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
+function subscribeReducedMotion(onChange: () => void) {
+  const query = window.matchMedia(reducedMotionQuery);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
+function readReducedMotion() {
+  return window.matchMedia(reducedMotionQuery).matches;
+}
 export function SiteMotion({ children }: { children: ReactNode }) {
-  const reduced = !!useReducedMotion();
+  const reduced = useSyncExternalStore(
+    subscribeReducedMotion,
+    readReducedMotion,
+    () => false,
+  );
   const [paused, setPaused] = useState(false);
   const stopped = paused || reduced;
   return (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, useScroll } from "motion/react";
@@ -13,12 +13,16 @@ const links = [
 export function Navigation() {
   const { scrollYProgress } = useScroll();
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const { pathname } = useLocation();
   return (
     <header
       className={pathname === "/" ? "site-header home-header" : "site-header"}
       onKeyDown={(event) => {
-        if (event.key === "Escape") setOpen(false);
+        if (event.key === "Escape" && open) {
+          setOpen(false);
+          menuButton.current?.focus();
+        }
       }}
     >
       <motion.div
@@ -62,6 +66,7 @@ export function Navigation() {
           Let’s talk <ArrowUpRight size={16} />
         </Link>
         <button
+          ref={menuButton}
           className="menu-toggle"
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}

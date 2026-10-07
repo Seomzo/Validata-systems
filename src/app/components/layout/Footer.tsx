@@ -17,7 +17,7 @@ export function Footer() {
             Built for automotive.
           </p>
         </div>
-        <div>
+        <nav className="footer-links" aria-label="Our work">
           <h2>Our work</h2>
           <Link to="/claimscanner">ClaimScanner</Link>
           <a
@@ -28,8 +28,8 @@ export function Footer() {
             Fixed Ops Reports <ArrowUpRight size={13} />
           </a>
           <Link to="/agents">Dealership agents</Link>
-        </div>
-        <div>
+        </nav>
+        <nav className="footer-links" aria-label="Company">
           <h2>Company</h2>
           <Link to="/about">About Validata</Link>
           <Link to="/technology">Technology</Link>
@@ -37,7 +37,7 @@ export function Footer() {
           <Link to="/contact">
             Get in touch <ArrowUpRight size={13} />
           </Link>
-        </div>
+        </nav>
       </div>
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Validata Systems</p>
