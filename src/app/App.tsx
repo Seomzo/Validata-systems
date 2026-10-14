@@ -20,7 +20,7 @@ import { ContactPage } from "@/app/pages/ContactPage";
 
 const metadata: Record<string, [string, string]> = {
   "/": [
-    "Intelligence in motion.",
+    "AI built for automotive.",
     "Validata Systems builds applied AI for automotive operations: warranty review, fixed ops reporting, and specialized dealership agents.",
   ],
   "/products": [

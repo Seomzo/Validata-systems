@@ -1,0 +1,218 @@
+.evidence-review {
+  container-type: inline-size;
+  width: 100%;
+  min-width: 0;
+  padding: clamp(16px, 3vw, 30px);
+  color: #172033;
+  background: #eef3f8;
+  border: 1px solid #dce5ee;
+  border-radius: 16px;
+}
+
+.evidence-review-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: #526478;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.evidence-review-caption > :first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #243a50;
+  font-weight: 650;
+}
+
+.evidence-review-sources {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.evidence-review-sources button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 9px 8px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: #526478;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.evidence-review-sources button svg {
+  flex-shrink: 0;
+}
+.evidence-review-sources button:hover {
+  background: #e2eaf3;
+  color: #172033;
+}
+.evidence-review-sources button[aria-pressed="true"] {
+  color: #086aab;
+  background: #fff;
+  border-color: #cfdeeb;
+  box-shadow: 0 2px 5px #273e5510;
+}
+.evidence-review-sources button:focus-visible {
+  outline: 2px solid #086aab;
+  outline-offset: 3px;
+}
+
+.evidence-review-paper {
+  padding: 23px 28px 16px;
+  border: 1px solid #dbe4ed;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow:
+    0 16px 35px -18px #283c5740,
+    0 2px 3px #283c5706;
+}
+
+.evidence-review-document-kind {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #62758a;
+  font:
+    11px / 1.5 "IBM Plex Mono",
+    monospace;
+  letter-spacing: 0.08em;
+}
+
+.evidence-review-paper h4 {
+  margin: 11px 0 20px;
+  color: #172033;
+  font-size: clamp(20px, 4.1cqi, 26px);
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.evidence-review-context > span,
+.evidence-review-excerpt > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #526478;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.evidence-review-context p,
+.evidence-review-excerpt p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.evidence-review-context {
+  margin-bottom: 15px;
+}
+.evidence-review-excerpt p {
+  padding: 10px 13px;
+  border-left: 2px solid #2196f3;
+  color: #164b73;
+  background: #eaf5ff;
+  animation: evidence-review-highlight 450ms ease-out;
+}
+
+.evidence-review-paper .evidence-review-paper-note {
+  margin: 15px 0 0;
+  color: #62758a;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.evidence-review-checkpoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 3px 0;
+}
+
+.evidence-review-checkpoint-mark {
+  flex-shrink: 0;
+  color: #086aab;
+}
+.evidence-review-checkpoint strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.evidence-review-checkpoint p {
+  max-width: 55ch;
+  margin: 0;
+  color: #526478;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.evidence-review-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes evidence-review-highlight {
+  from {
+    background-color: #cde9ff;
+  }
+  to {
+    background-color: #eaf5ff;
+  }
+}
+
+@container (max-width: 400px) {
+  .evidence-review-sources button {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+  }
+  .evidence-review-paper {
+    padding: 21px 18px 16px;
+  }
+  .evidence-review-paper h4 {
+    min-height: 2.4em;
+    margin-bottom: 18px;
+  }
+}
+
+.evidence-review[data-stopped="true"] .evidence-review-excerpt p {
+  animation: none;
+}
+.evidence-review[data-stopped="true"] button {
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .evidence-review-excerpt p {
+    animation: none;
+  }
+  .evidence-review-sources button {
+    transition: none;
+  }
+}

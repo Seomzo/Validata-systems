@@ -1,84 +1,83 @@
-# Validata design process
+# Validata Systems — evidence to action
 
-The audience is dealership operators, prospective partners, and people viewing a live showcase. The homepage should make the work tangible: warranty evidence, operational reports, and controlled dealership workflows. Keep the original logo and blue/black/white brand.
+## Brief and argument
 
-## Review method
+The visitor is a dealership operator, prospective partner, or engineering buyer. They should understand that Validata builds specialized automotive software, see concrete partner work, and start a conversation about their own workflow. Preserve the original logo, blue/black/white identity, Manrope, existing routes, and honest email-draft contact flow.
 
-Use [Apple Design](https://github.com/dickwu/apple-design-skill/blob/main/SKILL.md) in improvement mode. Read the relevant foundation and interaction references, review the current screen, define one product-specific interaction, implement, and verify. This is a React website; native tab bars, window chrome, and Apple system fonts aren't requirements.
+Subject inventory: repair orders; GFF logs; OEM procedures; source-linked findings; Tekion exports; advisor scorecards; store/day normalization; dealership logistics; defined tool access; human checkpoints; ClaimScanner.ai; Fixed Ops Reports.
 
-The latest review found that the abstract hero and long sticky chapters made the work feel remote and the page too repetitive. The signature is now a cinematic service-bay opening with an interactive intelligence layer: selecting a product connects its inputs, tools, and human outcome. A large ClaimScanner feature leads into paired Reporting and Agent showcases. The original interactive system map sits beside the technology explanation, and a second photographic asset grounds the operating principles in actual automotive work.
+On this page, the documents and operational handoffs behind Validata's three areas of work become a dimensional evidence stack, then tangible project chapters. The live interaction changes that stack from warranty documents to report columns to connected workflow stages; HTML explains every state.
 
-This direction is specific to dealership operations: source documents, diagnostic work, reporting, and handoffs provide the visual vocabulary. The repeated interactive overview was removed to give each section one job. Photos are illustrative brand imagery; diagrams label their concept/sample status and do not present invented outcomes as product evidence.
+Claims and proof:
 
-Sources used:
+1. Validata builds AI for automotive work → specific hero copy and three selectable areas of work.
+2. Warranty review needs traceable evidence → ClaimScanner's interactive, explicitly illustrative document review.
+3. Operational reporting should start with actual reports → real public Fixed Ops Reports preview, visibly labeled sample data.
+4. Agent systems need scoped tools and human checkpoints → illustrated harness architecture, no simulated autonomous success.
+5. Domain context matters → concise implementation approach and existing generated diagnostic image, explicitly illustrative.
+6. A conversation starts with the user's workflow → real contact route and business email.
 
-- `motion.md` › Best practices / Providing feedback: purposeful, brief, interruptible responses.
-- `feedback.md` › Best practices: feedback beside the item it explains.
-- `accessibility.md` › Vision / Mobility / Cognitive: readable contrast, comfortable controls, equivalent reduced-motion content.
-- `layout.md` › Visual hierarchy / Adaptability: progressive disclosure and the same functions at different widths.
-- `typography.md` › Using custom fonts / Supporting Dynamic Type: preserve legibility and hierarchy as text grows.
-- `color.md` › Inclusive color: use labels and shapes in addition to color.
-- `branding.md` › Best practices: retain brand expression with familiar control behavior.
-- `design-principles.md` › Agency / Craft / Delight: freedom to explore and restrained, meaningful detail.
+## Copy deck
 
-The files live in the installed skill's `references/hig/`. The reference source URLs are embedded there. Cross-platform guidance is in `references/cross-platform.md`.
+Hero: AI built for automotive.
+Supporting: We build software for the work behind the dealership: warranty claims, fixed operations, and the handoffs in between.
+Primary action: Explore our work. Secondary: Let's talk.
+Warranty state: Repair orders, diagnostic logs, and OEM procedures. Connected evidence for human review.
+Reporting state: Tekion exports, advisors, stores, and dates. One consistent view of daily operations.
+Agents state: Task context, approved tools, and checkpoints. A controlled path from request to handoff.
 
-## Tokens and layout
+Work: Built around the actual work.
+Introduction: Our work and partnerships connect the details inside a repair order to the decisions across an operation.
+ClaimScanner: Every finding needs a source. Connect repair orders and GFF diagnostic logs with relevant OEM procedures, so reviewers can inspect the evidence and identify what needs a closer look.
+Reports: The whole service department, in view. Turn Tekion report exports into advisor scorecards, store-level views, and daily trends. A consistent picture for the people running fixed operations.
+Agents: Tools with a job to do. We develop specialized agent harnesses for dealership logistics: the right context, bounded tool access, and a person at the decisions that need one.
+Approach: The details are the system. Start with the documents, exceptions, and handoffs your team already knows. Then build around them.
+Contact: Bring us the hard part. A workflow, an integration, or a product idea. Let's work through it together.
 
-Manrope stays the display and body face, with IBM Plex Mono reserved for technical annotations. New content uses 16px body copy, 12–14px controls, 11px minimum diagram labels, and responsive 32–58px section headlines. The hero uses a single 50–112px display moment. Controls target at least 44px in both dimensions. Hero image movement follows ordinary scrolling; selectors respond in 200–350ms. Reduced motion removes movement and manual pause disables scroll-linked image movement and ambient loops.
+## Direction and references
 
-| Role              | Light section | Dark section | Contrast against section background            |
-| ----------------- | ------------- | ------------ | ---------------------------------------------- |
-| Background        | #ffffff       | #05080f      | —                                              |
-| Content           | #172033       | #f5f8ff      | 16.27:1 / 18.85:1                              |
-| Secondary content | #526478       | #b0c0d7      | 6.08:1 / 10.85:1                               |
-| Interactive text  | #086aab       | #69c8ed      | 5.74:1 / 10.58:1                               |
-| Raised surface    | #f4f7fc       | #0c1829      | Use the content roles above                    |
-| Brand accent      | #2196f3       | #23b1de      | Original brand; avoid small blue text on white |
+UI Design Stack coordinates ThreeUI, Taste, Awesome Premium, Apple Design, frontend-design, and Vercel web review. Taste's first technical studio draw returned contact-sheet/dense-tiles, both requiring many pictures or a density inconsistent with the requested dimensional hero. Redrew under the actual AI-product/bold brief and selected Colour Chapters. The full sheet is `.taste-skill/direction.json`.
 
-Contrast values are computed from sRGB relative luminance. The original #2196f3 is 3.12:1 against white, so small interactive copy uses the darker blue role.
+Adopt the chapter composition: dark opening, white evidence gallery, blue agent architecture, white contact close. Use Premium's spacing and explicit states, retaining original typography/colors. Adapt the folder-stack hero to a real Three.js evidence sculpture. Replace the drawn venue-address contact and clock footer with actual business contact/navigation; no physical address or hours were provided. The user brief, factual content, accessibility, and platform fit override source image quotas, arbitrary minimum chapter heights, invented sample businesses, and conflicting preset colors. No random stock pictures or faux metrics.
 
-Regular width:
+ThreeUI's MIT DotMatrix shader is a source reference for the instrument surface; the scene itself is purpose-built for three evidence modes. Import only Three.js, not the whole catalog with multiple runtimes. Retain notices beside the adapted source. Browser checks use CUA, not Taste's separate CDP helper.
 
-```
-Original logo + navigation
-Immersive automotive photograph
-Hero copy       Interactive input → outcome
-Three product selectors + motion control
-Portfolio title
-ClaimScanner feature + source-document scene
-Reporting feature | Agent feature
-Technology copy | Interactive system map
-Diagnostic photo | Operating principles
-Contact + readable footer
-```
+Apple foundation references read: accessibility, layout, typography, color, motion, branding, and cross-platform translation. Applicable guidance: motion is optional and purposeful; branding defers to content; preserve familiar control behavior; group related information; support larger text; do not convey meaning by color alone. Vercel's current guideline document is fetched for final review.
 
-Compact width or short viewport:
+## Tokens and composition
 
-```
-Original logo + navigation
-Hero copy + vehicle image + input → outcome
-Three product selectors + motion control
-Claim copy + its illustration
-Report copy + its illustration
-Agent copy + its illustration
-Technology copy + system map
-Diagnostic photograph + principles
-Contact + footer
-```
+| Role | Value | Contrast |
+| --- | --- | --- |
+| Dark ground | #070c14 | — |
+| Light content | #f7f9fc | 18.58:1 on dark ground |
+| Dark secondary | #a5b4c5 | 9.27:1 on dark ground |
+| Original blue | #2196f3 | 6.27:1 on dark ground |
+| Dark ink | #07111f | 6.06:1 on original blue |
+| Link blue | #155e9a | 6.78:1 on white |
+| Light secondary | #526478 | 6.08:1 on white |
 
-The portfolio is deliberately specific to dealership work: real document types, reporting categories, and human checkpoints. Generic device mockups, fake results, scroll hijacking, and autoplaying carousels would weaken it. Decorative numbering was removed from the product overview because the three areas aren't a required sequence.
+Manrope display 48–100px, body 17–19px, controls/labels 13–16px. One 1280px content grid, 20–64px gutters, 72–120px chapter spacing. Open image surfaces rather than ubiquitous rounded cards. Original blue uses dark button labels; small white text uses a darker blue.
 
-## Generated assets
+Desktop: white logo/navigation → dark hero text left + evidence sculpture right → three workflow selectors → white intro → ClaimScanner spread → reversed report spread → blue agent architecture → documentary context → contact → quiet footer.
+Compact: logo/menu → headline/copy/actions → sculpture → wrapped workflow selectors/description → each project's copy then its evidence → stacked architecture → context image/copy → contact/footer.
 
-Two assets were made with the built-in image generation tool, visually reviewed, and encoded as JPEG for delivery. The original logo was preserved byte-for-byte. Prompts and provenance are recorded in `src/assets/ASSETS.md`. The combined new image payload is approximately 789 KB; only the hero is eager-loaded and the diagnostic image loads lazily.
+## Motion and verification
 
-## Verification floor
+The scene is the signature: subtle material movement and meaningful geometry changes on selection. Section entrances are brief and varied; no scroll hijacking. Native buttons expose their pressed state, focus stays visible, content survives without WebGL. Manual pause and OS reduced-motion stop motion; canvas also pauses when hidden/offscreen, disposes resources, and has a static fallback. Coarse pointers do not require hover.
 
-- Original logo file and colors preserved.
-- Normal scrolling, anchor links, and keyboard controls work.
-- Illustrations say they are examples; no claim of a live backend.
-- Scroll-linked scenes remain readable when motion is stopped; pause is available in the hero and footer.
-- Phone, tablet, desktop, short viewport, and enlarged-text layouts retain all content.
-- Reduced motion, reduced transparency, and increased contrast have deliberate fallbacks.
-- Typecheck, production build, and hosted-preview verification pass before sharing.
+Verify desktop, tablet, 390px and 320px layouts, enlarged text, actual asset rendering, keyboard/menu/anchors/links, contact draft, motion pause/reduced-motion and WebGL fallback. Run TypeScript/build, review source and rendered work independently, then Firebase preview before production. Record actual results after review.
+
+
+## Rendered review and validation — 2026-10-14
+
+Two independent agents reviewed art direction and code. Round one identified oversized hero controls, repetitive document geometry, and a delayed project opening. The final pass uses integrated controls, three distinct warranty sources (repair order, diagnostic log, procedure checklist), quieter graphite-blue materials, and a shorter introduction. Accessibility review corrected dark-on-dark focus outlines and pale text contrast in the blue chapter. The image disclosure moved below the photograph for consistent contrast.
+
+Observed in the browser: 1440px desktop, 768px tablet, 390px phone, and 320px narrow layouts; no horizontal document overflow in the inspected states. Verified hero mode selection by pointer and Enter, all three source-document controls, agent checkpoints, mobile menu and Escape focus restoration, homepage return, anchors, and loaded product/diagnostic images. Contact preparation produced the correctly addressed mailto draft using synthetic QA input; no message was sent.
+
+Motion: paused canvas-region screenshots were byte-identical across captures; mode changes still updated immediately. Emulated OS reduced motion selected the static SVG and disabled the motion control. Returning to normal motion restored WebGL. Forced WebGL context loss selected the fallback; context restoration recovered the renderer. Browser console had no application errors before the deliberate context-loss test. Offscreen and background-tab suspension and disposal were independently reviewed in source.
+
+TypeScript, production build, and git diff whitespace checks passed. Original logo matches origin/main byte-for-byte. ThreeUI MIT copyright remains in the distributed renderer. The 133 KB gzip renderer is a separate dynamic chunk; reduced-motion visits skip its import. The two portfolio image assets total about 444 KB; both load lazily. Removed imports for the replaced homepage's unused stylesheet layers.
+
+Taste's source scan found no placeholder copy, stock marketing phrases, decorative numbering, or new generic font choices. Its blanket shadow/hairline rules flag intentional paper depth, selected-control indicators, and navigation boundaries. Those are documented design choices under the user's adaptable-preset instruction, not functional failures. The approved CUA browser replaced Taste's separate inspector. Physical-device GPU performance, a screen-reader session, and browser text-only zoom were not tested.
+
+ClaimScanner's public domain did not resolve during this pass. Its homepage action stays on the local product route, and the product page's secondary action now reaches its review process rather than a broken external destination. The primary walkthrough/contact path remains unchanged.
