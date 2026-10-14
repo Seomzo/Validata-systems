@@ -27,10 +27,10 @@ Reporting state: Tekion exports, advisors, stores, and dates. One consistent vie
 Agents state: Task context, approved tools, and checkpoints. A controlled path from request to handoff.
 
 Work: Built around the actual work.
-Introduction: Our work and partnerships connect the details inside a repair order to the decisions across an operation.
+Introduction: From warranty evidence in ClaimScanner to daily reporting in Fixed Ops Reports, we build for the people doing the work.
 ClaimScanner: Every finding needs a source. Connect repair orders and GFF diagnostic logs with relevant OEM procedures, so reviewers can inspect the evidence and identify what needs a closer look.
-Reports: The whole service department, in view. Turn Tekion report exports into advisor scorecards, store-level views, and daily trends. A consistent picture for the people running fixed operations.
-Agents: Tools with a job to do. We develop specialized agent harnesses for dealership logistics: the right context, bounded tool access, and a person at the decisions that need one.
+Reports: The operation, in view. Turn Tekion report exports into advisor scorecards, store-level views, and daily trends. A consistent picture for the people running fixed operations.
+Agents: Tools with a job to do. We develop agent harnesses for dealership logistics: the right context, bounded tool access, and a person at the decisions that need one.
 Approach: The details are the system. Start with the documents, exceptions, and handoffs your team already knows. Then build around them.
 Contact: Bring us the hard part. A workflow, an integration, or a product idea. Let's work through it together.
 
