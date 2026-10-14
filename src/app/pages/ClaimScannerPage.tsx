@@ -24,20 +24,15 @@ export function ClaimScannerPage() {
               Request a walkthrough
               <ArrowUpRight size={17} />
             </Link>
-            <a
-              className="text-link"
-              href="https://claimscanner.ai/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Visit product site
+            <a className="text-link" href="#review-process">
+              See the review process
               <ArrowUpRight size={16} />
             </a>
           </div>
         </div>
         <ClaimPreview />
       </section>
-      <section className="section workflow-section">
+      <section className="section workflow-section" id="review-process">
         <div className="wrap">
           <div className="section-heading">
             <div>

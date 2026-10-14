@@ -13,3 +13,11 @@ Use case: ads-marketing. Asset type: panoramic website hero photograph for Valid
 Prompt:
 
 Use case: ads-marketing. Asset type: square editorial website image for automotive AI company Validata Systems. A premium photographic close-up inside a real modern automotive service bay: hands in clean dark work gloves using a rugged diagnostic tablet next to a silver vehicle's open engine compartment, precise machined metal textures in the foreground, narrow depth of field, technician face outside frame. Tablet viewed obliquely with a dark blue interface of simple abstract lines, no legible text. Composition on the diagonal, tactile and grounded, human expertise meeting digital analysis. Cold white task lighting, restrained electric blue reflections, graphite black and silver palette, crisp elegant commercial photography, natural realistic details. No logos, no branding, no words, no holograms, no watermark. Illustrative brand photography, not documentation of a client or actual product.
+
+## fixed-ops-preview.png
+
+Actual public product preview captured from https://www.fixedopsreports.com/ on 2026-10-14 using the browser screenshot tool, cropped to the dashboard preview. Used in the user-authorized showcase of their partner work. Its sample store/figures are visible in the source site's preview; they are not independently verified customer results. The website caption explicitly identifies this as a public product preview with sample data. No private or authenticated records were accessed.
+
+## Evidence sculpture and source review
+
+The homepage's document sculpture is original Three.js geometry, with a small instrument-grid shader adapted from MIT-licensed ThreeUI. Attribution is in `src/app/components/visualizations/THREEUI-NOTICE.md` and the bundled shader source. Warranty source excerpts are original illustrative sample text, not real customer records or OEM instructions.

@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { motion, useScroll } from "motion/react";
 import { Brand } from "../Brand";
+import "../../../styles/navigation-refresh.css";
 
 const links = [
   ["Our work", "/products"],
@@ -11,13 +11,12 @@ const links = [
   ["Trust", "/security"],
 ];
 export function Navigation() {
-  const { scrollYProgress } = useScroll();
   const [open, setOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   const { pathname } = useLocation();
   return (
     <header
-      className={pathname === "/" ? "site-header home-header" : "site-header"}
+      className="site-header navigation-refresh"
       onKeyDown={(event) => {
         if (event.key === "Escape" && open) {
           setOpen(false);
@@ -25,19 +24,19 @@ export function Navigation() {
         }
       }}
     >
-      <motion.div
-        className="scroll-progress"
-        style={{ scaleX: scrollYProgress }}
-        aria-hidden="true"
-      />
       <a className="skip-link" href="#main">
         Skip to content
       </a>
       <div className="wrap nav-inner">
         <Link
           to="/"
+          className="navigation-brand"
           aria-label="Validata Systems home"
-          onClick={() => setOpen(false)}
+          onClick={() => {
+            setOpen(false);
+            if (pathname === "/")
+              window.scrollTo({ top: 0, behavior: "instant" });
+          }}
         >
           <Brand />
         </Link>
@@ -63,17 +62,18 @@ export function Navigation() {
           className="button button-small nav-cta"
           onClick={() => setOpen(false)}
         >
-          Let’s talk <ArrowUpRight size={16} />
+          Let’s talk <ArrowUpRight size={16} aria-hidden="true" />
         </Link>
         <button
           ref={menuButton}
+          type="button"
           className="menu-toggle"
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen(!open)}
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
       </div>
       {open && (
@@ -85,7 +85,7 @@ export function Navigation() {
           {[...links, ["Contact", "/contact"]].map(([label, to]) => (
             <NavLink key={to} to={to} onClick={() => setOpen(false)}>
               {label}
-              <ArrowUpRight size={18} />
+              <ArrowUpRight size={18} aria-hidden="true" />
             </NavLink>
           ))}
         </nav>
